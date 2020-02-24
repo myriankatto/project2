@@ -16,7 +16,7 @@ router.post(
   '/sign-up',
   routeGuard(false),
   passport.authenticate('local-sign-up', {
-    successRedirect: '/private',
+    successRedirect: '/',
     failureRedirect: '/authentication/sign-up'
   })
 );
@@ -29,7 +29,7 @@ router.post(
   '/sign-in',
   routeGuard(false),
   passport.authenticate('local-sign-in', {
-    successRedirect: '/dashboard',
+    successRedirect: '/',
     failureRedirect: '/authentication/sign-in'
   })
 );

@@ -22,38 +22,32 @@ passport.deserializeUser((id, callback) => {
 
 passport.use(
   'local-sign-up',
-  new LocalStrategy(
-    {
-      usernameField: 'email',
-      passReqToCallback: true
-    },
-    (req, email, password, callback) => {
-      const name = req.body.name;
-      bcryptjs
-        .hash(password, 10)
-        .then(hash => {
-          return User.create({
-            name,
-            email,
-            passwordHash: hash
-          });
-        })
-        .then(user => {
-          callback(null, user);
-        })
-        .catch(error => {
-          callback(error);
+  new LocalStrategy({}, (req, username, password, callback) => {
+    const email = req.body.email;
+    bcryptjs
+      .hash(password, 10)
+      .then(hash => {
+        return User.create({
+          username,
+          email,
+          passwordHash: hash
         });
-    }
-  )
+      })
+      .then(user => {
+        callback(null, user);
+      })
+      .catch(error => {
+        callback(error);
+      });
+  })
 );
 
 passport.use(
   'local-sign-in',
-  new LocalStrategy({ usernameField: 'email' }, (email, password, callback) => {
+  new LocalStrategy({}, (username, password, callback) => {
     let user;
     User.findOne({
-      email
+      username
     })
       .then(document => {
         user = document;
