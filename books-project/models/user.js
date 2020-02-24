@@ -26,6 +26,12 @@ const schema = new mongoose.Schema(
     picture: {
       type: String
     },
+    about: {
+      type: String
+    },
+    location: {
+      type: String
+    },
     read: [
       {
         type: mongoose.Schema.Types.ObjectId,
