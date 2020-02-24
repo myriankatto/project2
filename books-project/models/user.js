@@ -8,6 +8,11 @@ const schema = new mongoose.Schema(
       type: String,
       trim: true
     },
+    username: {
+      type: String,
+      trim: true,
+      required: true
+    },
     email: {
       type: String,
       required: true,
@@ -21,18 +26,24 @@ const schema = new mongoose.Schema(
     picture: {
       type: String
     },
-    read: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Books'
-    }],
-    reading: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Books'
-    }],
-    toRead: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Books'
-    }]
+    read: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Books'
+      }
+    ],
+    reading: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Books'
+      }
+    ],
+    toRead: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Books'
+      }
+    ]
   },
   {
     timestamps: {
