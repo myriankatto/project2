@@ -19,11 +19,6 @@ const booksSchema = new mongoose.Schema({
   year: {
     type: Number
   },
-  genre: [
-    {
-      type: String
-    }
-  ],
   publisher: {
     type: String
   },
@@ -55,4 +50,3 @@ const booksSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Books', booksSchema);
-

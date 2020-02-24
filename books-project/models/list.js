@@ -6,20 +6,13 @@ const schema = new mongoose.Schema(
   {
     name: {
       type: String,
-      trim: true
-    },
-    email: {
-      type: String,
-      required: true,
-      lowercase: true,
-      trim: true
-    },
-    passwordHash: {
-      type: String,
+      trim: true,
       required: true
     },
-    picture: {
-      type: String
+    creator: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
     }
   },
   {
