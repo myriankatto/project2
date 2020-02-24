@@ -11,12 +11,11 @@ const schema = new mongoose.Schema(
     },
     creator: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
+      ref: 'User'
     },
     book: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Book"
+      ref: 'Book'
     }
   },
   {
