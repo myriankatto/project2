@@ -6,31 +6,35 @@ const passport = require('passport');
 
 const router = new Router();
 
-router.get('/sign-up', (req, res, next) => {
+const routeGuard = require('./../middleware/route-guard');
+
+router.get('/sign-up', routeGuard(false), (req, res, next) => {
   res.render('authentication/sign-up');
 });
 
 router.post(
   '/sign-up',
+  routeGuard(false),
   passport.authenticate('local-sign-up', {
     successRedirect: '/private',
     failureRedirect: '/authentication/sign-up'
   })
 );
 
-router.get('/sign-in', (req, res, next) => {
+router.get('/sign-in', routeGuard(false), (req, res, next) => {
   res.render('authentication/sign-in');
 });
 
 router.post(
   '/sign-in',
+  routeGuard(false),
   passport.authenticate('local-sign-in', {
     successRedirect: '/dashboard',
     failureRedirect: '/authentication/sign-in'
   })
 );
 
-router.post('/sign-out', (req, res, next) => {
+router.post('/sign-out', routeGuard(true), (req, res, next) => {
   req.logout();
   res.redirect('/');
 });

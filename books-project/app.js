@@ -13,8 +13,15 @@ const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const passportConfigure = require('./passport-configuration.js');
+
+
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
+const listRouter = require('./routes/list');
+const userRouter = require('./routes/user');
+const bookRouter = require('./routes/book');
+
+
 const hbs = require('hbs');
 const handlebarsHelperDate = require('helper-date');
 
@@ -63,6 +70,10 @@ app.use(bindUserToViewLocals);
 
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
+app.use('/list', listRouter);
+app.use('/user', userRouter);
+app.use('/book', bookRouter);
+
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
