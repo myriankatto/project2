@@ -20,7 +20,19 @@ const schema = new mongoose.Schema(
     },
     picture: {
       type: String
-    }
+    },
+    read: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Books'
+    }],
+    reading: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Books'
+    }],
+    toRead: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Books'
+    }]
   },
   {
     timestamps: {

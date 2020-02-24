@@ -8,7 +8,7 @@ const reviewSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Books'
     },
-    author: {
+    creator: {
       type: mongoose.Schema.Type.ObjectId,
       ref: 'User'
     },
