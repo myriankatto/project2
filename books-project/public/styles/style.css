@@ -39,8 +39,7 @@ p {
     margin-bottom: 1rem; }
 
 img {
-  width: 100%;
-  max-width: 100%; }
+  width: 50px; }
 
 form {
   display: flex;

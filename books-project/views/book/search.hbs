@@ -1,1 +1,10 @@
 <h1>Search results</h1>
+
+{{#each data}}
+
+{{ title }}
+{{ authors.[0] }}
+<img src="{{ imageLinks.thumbnail }}" alt="{{ title }}">
+<br>
+
+{{/each}}
