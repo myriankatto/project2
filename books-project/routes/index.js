@@ -17,8 +17,12 @@ router.get('/search', (req, res, next) => {
   requestPromise
     .then(output => {
       const data = output.data.items.map(file => {
-        return file.volumeInfo;
+        return file;
       });
+      // console.log(id);
+      // const data = output.data.items.map(file => {
+      //   return file.volumeInfo;
+      // });
       //console.log(data);
       res.render('book/search', { data });
     })

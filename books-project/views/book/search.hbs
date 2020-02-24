@@ -1,10 +1,14 @@
 <h1>Search results</h1>
 
+
 {{#each data}}
 
-{{ title }}
-{{ authors.[0] }}
-<img src="{{ imageLinks.thumbnail }}" alt="{{ title }}">
+<a href="/book/{{ id }}">
+{{ volumeInfo.title }}
+{{ volumeInfo.authors.[0] }}
+<img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
+</a>
 <br>
+
 
 {{/each}}

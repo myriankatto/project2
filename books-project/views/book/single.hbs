@@ -1,1 +1,7 @@
 <h1>Book information</h1>
+{{#with data}}
+{{ title }}
+{{ authors.[0] }}
+<img src="{{ imageLinks.thumbnail }}" alt="{{ title }}">
+
+{{/with}}
