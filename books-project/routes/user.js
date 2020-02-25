@@ -3,6 +3,7 @@
 const { Router } = require('express');
 const router = new Router();
 const routeGuard = require('./../middleware/route-guard');
+const axios = require('axios');
 
 const User = require(`./../models/user`);
 
@@ -22,28 +23,10 @@ router.get('/:userId/account', routeGuard(true), (req, res, next) => {
 
 router.get('/:userId/profile', (req, res, next) => {
   const { userId } = req.params;
-
-  // let user;
-
   User.findById(userId)
-
-    .then(user => {
-      console.log(user);
-      res.render(`user/profile`, { user });
+    .then(document => {
+      res.render(`user/profile`, { document });
     })
-    // .then(document => {
-    //   user = document;
-    //   console.log(user);
-    //   if (document) {
-    //     return User.find({ user: userId });
-    //   } else {
-    //     next(new Error(`USER_NOT_FOUND`));
-    //   }
-    // })
-    // .then(posts => {
-    //   const isOwnProfile = req.user && req.user._id.toString() === user._id.toString();
-    //   res.render(`user/profile`, { profile: user, posts, isOwnProfile });
-    // })
     .catch(error => {
       next(error);
     });

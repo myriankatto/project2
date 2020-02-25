@@ -32,9 +32,54 @@ const schema = new mongoose.Schema(
     location: {
       type: String
     },
-    read: [{ type: String }],
-    reading: [{ type: String }],
-    toRead: [{ type: String }]
+    read: [
+      {
+        googleID: {
+          type: String
+        },
+        title: {
+          type: String
+        },
+        author: {
+          type: Array
+        },
+        imageUrl: {
+          type: String
+        }
+      }
+    ],
+    reading: [
+      {
+        googleID: {
+          type: String
+        },
+        title: {
+          type: String
+        },
+        author: {
+          type: Array
+        },
+        imageUrl: {
+          type: String
+        }
+      }
+    ],
+    toRead: [
+      {
+        googleID: {
+          type: String
+        },
+        title: {
+          type: String
+        },
+        author: {
+          type: Array
+        },
+        imageUrl: {
+          type: String
+        }
+      }
+    ]
   },
   {
     timestamps: {

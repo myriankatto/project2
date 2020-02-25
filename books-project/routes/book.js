@@ -29,30 +29,37 @@ router.get('/:id', (req, res, next) => {
 router.post('/:id', (req, res, next) => {
   const bookId = req.params.id;
   const bookshelf = req.body.bookshelf;
-  console.log(bookshelf);
   const userId = req.user._id;
   //first thing is to look up the users information
   let userData;
-  User.findById(userId)
+  let bookData;
+  axios
+    .get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
+    .then(bookInfo => {
+      console.log(bookInfo);
+      bookData = {
+        googleID: bookInfo.data.id,
+        title: bookInfo.data.volumeInfo.title,
+        author: bookInfo.data.volumeInfo.authors,
+        imageUrl: bookInfo.data.volumeInfo.imageLinks.thumbnail
+      };
+      return User.findById(userId);
+    })
     .then(user => {
-      console.log(user);
       userData = user;
       switch (bookshelf) {
         case 'read':
-          userData.read = [...userData.read, bookId];
-          console.log(userData.read);
+          userData.read = [...userData.read, bookData];
           return User.findByIdAndUpdate(userId, {
             read: userData.read
           });
         case 'reading':
-          userData.reading = [...userData.reading, bookId];
-          console.log(userData.reading);
+          userData.reading = [...userData.reading, bookData];
           return User.findByIdAndUpdate(userId, {
             reading: userData.reading
           });
         case 'toRead':
-          userData.toRead = [...userData.toRead, bookId];
-          console.log(userData.toRead);
+          userData.toRead = [...userData.toRead, bookData];
           return User.findByIdAndUpdate(userId, {
             toRead: userData.toRead
           });
