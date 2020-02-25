@@ -5,32 +5,60 @@
 <span><strong>Location</strong>: {{user.location}}</span>
 <br>
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-<img src="{{document.read.0.imageUrl}}" alt="">
-{{!-- <div class="container">
+
+
+
+<div class="container">
+<h2>Read</h2>
   <div class="row">
+{{#each document.read}}
     <div class="col-sm">
-      One of three columns
+      <div class="card" style="width: 6rem;">
+        <img src="{{imageUrl}}" class="card-img-top"alt="{{title}}">
+    <div class="card-body">
+    <p class="card-text">{{title}} by {{author}}<br> </p>
+      <form method="POST">
+        <button class="remove-book">X</button>
+      </form>
+       </div>
+      </div>
+      </div>
+
+
+{{/each}}
     </div>
+  </div>  
+
+
+
+<div class="container">
+<h2>To Read</h2>
+  <div class="row">
+{{#each document.toRead}}
     <div class="col-sm">
-      One of three columns
+      <div class="card" style="width: 6rem;">
+        <img src="{{imageUrl}}" class="card-img-top"alt="{{title}}">
+    <div class="card-body">
+    <p class="card-text">{{title}} by {{author}}<br> </p>
+       </div>
+      </div>
+      </div>
+{{/each}}
     </div>
+  </div>  
+
+<div class="container">
+<h2>Reading</h2>
+  <div class="row">
+{{#each document.reading}}
     <div class="col-sm">
-      One of three columns
+      <div class="card" style="width: 6rem;">
+        <img src="{{imageUrl}}" class="card-img-top"alt="{{title}}">
+    <div class="card-body">
+    <p class="card-text">{{title}} by {{author}}<br> </p>
+       </div>
+      </div>
+      </div>
+{{/each}}
     </div>
-     <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-  </div> --}}
-</div>
+  </div>  

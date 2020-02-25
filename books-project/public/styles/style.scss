@@ -10,7 +10,7 @@ $grey: hsla(0, 0, 75%, 0.5);
 }
 
 body {
-  max-width: 52em;
+  max-width: 60em;
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
@@ -74,4 +74,21 @@ button,
 textarea {
   min-height: 8em;
   resize: vertical;
+}
+
+.card-body {
+  p {
+    font-size: 0.6em;
+  }
+}
+
+.col-sm {
+  flex-grow: 0;
+}
+
+.remove-book {
+  width: 10px;
+  margin: 0;
+  padding: 0;
+  border: none;
 }

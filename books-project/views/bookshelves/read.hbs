@@ -1,0 +1,25 @@
+
+<div class="container">
+<h2>Read</h2>
+  <div class="row">
+{{#each user.read}}
+ <div class="col-sm">
+      <div class="card" style="width: 6rem;">
+        <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
+    <div class="card-body">
+    <p class="card-text">{{ title }} by {{ author }}<br> </p>
+       </div>
+      </div>
+      </div> 
+{{/each}}
+    </div>
+  </div>  
+
+{{!--   
+{{#each user}}
+
+      <form action="/user/{{ _id }}/read/delete" method="POST">
+        <button class="remove-book">X</button>
+      </form>
+
+{{/each}} --}}
