@@ -4,4 +4,27 @@
 {{ authors.[0] }}
 <img src="{{ imageLinks.thumbnail }}" alt="{{ title }}">
 
+<form method="POST">
+<label for="bookshelf">Add to your bookshelf</label>
+<select name="bookshelf" id="bookshelf">
+    <option value="toRead">To Read</option>
+    <option value="reading">Reading</option>
+    <option value="read">Read</option>
+  </select>
+  <button>Add</button>
+</form>
+
+{{!-- <form method="POST">
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Add to bookshelf
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button" value="toread">To Read</button>
+    <button class="dropdown-item" type="button" value="reading">Reading</button>
+    <button class="dropdown-item" type="button" value="read">Read</button>
+  </div>
+</div>
+</form> --}}
+
 {{/with}}

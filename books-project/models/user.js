@@ -32,24 +32,9 @@ const schema = new mongoose.Schema(
     location: {
       type: String
     },
-    read: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Books'
-      }
-    ],
-    reading: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Books'
-      }
-    ],
-    toRead: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Books'
-      }
-    ]
+    read: [{ type: String }],
+    reading: [{ type: String }],
+    toRead: [{ type: String }]
   },
   {
     timestamps: {

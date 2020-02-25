@@ -13,10 +13,12 @@ const schema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     },
-    book: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Book'
-    }
+    books: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Book'
+      }
+    ]
   },
   {
     timestamps: {
