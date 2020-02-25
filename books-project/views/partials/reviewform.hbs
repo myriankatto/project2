@@ -1,1 +1,15 @@
-<p>Review Form</p>
+<form action="/book/{{ id }}/review" method="POST">
+  <label for="input-rate">Rate</label>
+  <select name="rate" id="input-rate">
+    <option value="5">5</option>
+    <option value="4">4</option>
+    <option value="3">3</option>
+    <option value="2">2</option>
+    <option value="1">1</option>
+  </select>
+  
+  <label for="input-content">Review</label>
+  <textarea name="content" id="input-content" placeholder="What do you think about this book?"></textarea>
+
+  <button>Submit Review</button>
+</form>

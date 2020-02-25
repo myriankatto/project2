@@ -4,27 +4,74 @@ const { Router } = require('express');
 const router = new Router();
 const routeGuard = require('./../middleware/route-guard');
 const axios = require('axios');
-const Books = require('./../models/book');
 const User = require('./../models/user');
+const Review = require('./../models/review');
+
+router.post('/:id/review', routeGuard(true), (req, res, next) => {
+  const id = req.params.id;
+  const userId = req.user._id;
+  const { content, rate } = req.body;
+
+  User.findById(userId)
+    .then(user => {
+      if (!user) {
+        return Promise.reject(new Error('NOT_FOUND'));
+      } else {
+        return Review.create({
+          book: id,
+          creator: userId,
+          content,
+          rate
+        });
+      }
+    })
+
+    .then(() => {
+      res.redirect(`/book/${id}`);
+    })
+
+    .catch(error => {
+      console.log(error);
+    });
+});
 
 router.get('/:id', (req, res, next) => {
   const id = req.params.id;
-
-  console.log(id);
+  let data;
 
   const requestPromise = axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
 
   requestPromise
     .then(output => {
-      const data = output.data.volumeInfo;
+      data = output.data;
 
-      console.log(data);
-      res.render('book/single', { data });
+      return Review.find({ book: id }).populate(' creator ');
     })
+
+    .then(reviews => {
+      res.render('book/single', { data, reviews });
+    })
+
     .catch(error => {
       console.log(error);
     });
 });
+
+// router.get('/:id', (req, res, next) => {
+//   const id = req.params.id;
+
+//   const requestPromise = axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
+
+//   requestPromise
+//     .then(output => {
+//       const data = output.data;
+//       //console.log(data);
+//       res.render('book/single', { data });
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// });
 
 router.post('/:id', (req, res, next) => {
   const bookId = req.params.id;
@@ -66,14 +113,9 @@ router.post('/:id', (req, res, next) => {
       }
     })
     .then(() => {
-      res.redirect('/');
+      res.redirect(`/user/${userId}/profile`);
     })
     .catch(error => next(error));
-});
-
-router.post('/:bookId/review', routeGuard(true), (req, res, next) => {
-  //....
-  res.redirect('book/single');
 });
 
 module.exports = router;

@@ -5,11 +5,10 @@ const mongoose = require('mongoose');
 const reviewSchema = new mongoose.Schema(
   {
     book: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Books'
+      type: String
     },
     creator: {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     },
     content: {
@@ -17,7 +16,9 @@ const reviewSchema = new mongoose.Schema(
     },
     rate: {
       type: Number
-    },
+    }
+  },
+  {
     timestamps: {
       createdAt: 'creationDate',
       updatedAt: 'updateDate'

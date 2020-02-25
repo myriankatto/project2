@@ -13,7 +13,6 @@ router.get('/:userId/account', routeGuard(true), (req, res, next) => {
   User.findById(userId)
 
     .then(user => {
-      console.log(user);
       res.render(`user/account`, { user });
     })
     .catch(error => {

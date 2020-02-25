@@ -10,20 +10,16 @@ router.get('/', (req, res, next) => {
 
 router.get('/search', (req, res, next) => {
   const term = req.query.term;
-  // console.log(term);
 
-  const requestPromise = axios.get(`https://www.googleapis.com/books/v1/volumes?q=${term}`);
+  const requestPromise = axios.get(
+    `https://www.googleapis.com/books/v1/volumes?q=${term}&maxResults=30`
+  );
 
   requestPromise
     .then(output => {
       const data = output.data.items.map(file => {
         return file;
       });
-      // console.log(id);
-      // const data = output.data.items.map(file => {
-      //   return file.volumeInfo;
-      // });
-      //console.log(data);
       res.render('book/search', { data });
     })
     .catch(error => {

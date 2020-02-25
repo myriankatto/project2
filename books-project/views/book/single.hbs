@@ -1,9 +1,12 @@
 <h1>Book information</h1>
-{{#with data}}
-{{ title }}
-{{ authors.[0] }}
-<img src="{{ imageLinks.thumbnail }}" alt="{{ title }}">
 
+{{#with data}}
+<h4>{{ volumeInfo.title }}</h4>
+<br>
+{{ volumeInfo.authors.[0] }}
+<br>
+<img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
+<br>
 <form method="POST">
 <label for="bookshelf">Add to your bookshelf</label>
 <select name="bookshelf" id="bookshelf">
@@ -26,5 +29,17 @@
   </div>
 </div>
 </form> --}}
-
 {{/with}}
+
+<br>
+<footer>
+<h2>Users' Reviews</h2>
+
+{{#each reviews}}
+{{>review}}
+{{/each}}
+
+{{#with data}}
+{{>reviewform}}
+{{/with}}
+</footer>
