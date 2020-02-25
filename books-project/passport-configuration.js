@@ -22,7 +22,7 @@ passport.deserializeUser((id, callback) => {
 
 passport.use(
   'local-sign-up',
-  new LocalStrategy({}, (req, username, password, callback) => {
+  new LocalStrategy({ passReqToCallback: true }, (req, username, password, callback) => {
     const email = req.body.email;
     bcryptjs
       .hash(password, 10)
