@@ -5,10 +5,12 @@
 {{#with user}}
 {{#each (reverse this.read)}}
  <div class="col-sm">
+   <a href="/book/{{ googleID }}">
       <div class="card" style="width: 6rem;">
         <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
     <div class="card-body">
     <p class="card-text">{{ title }} by {{ author }}<br> </p>
+      </a>
      <form action="/user/{{../_id}}/read/{{ _id }}/delete" method="POST">
         <button class="remove-book">X</button>
       </form>

@@ -9,6 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "alert-node": "^2.1.4",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.19.0",

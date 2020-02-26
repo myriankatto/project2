@@ -1,5 +1,7 @@
 <h1>Book information</h1>
 
+<secion >
+  <articles>
 {{#with data}}
 <h4>{{ volumeInfo.title }}</h4>
 <p>{{ volumeInfo.description }}</p>
@@ -18,9 +20,18 @@
 </ul>
 {{/each}}
 <br>
-<img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
+
+</articles>
+
+<articles>
+<img src="{{ volumeInfo.imageLinks.large }}" alt="{{ volumeInfo.title }}">
 <br>
 
+</articles>
+</section>
+
+
+<section>
 <form method="POST">
 <label for="bookshelf">Add to your bookshelf</label>
 <select name="bookshelf" id="bookshelf">
@@ -30,6 +41,7 @@
   </select>
   <button>Add</button>
 </form>
+
 
 {{!-- <form method="POST">
 <div class="dropdown">
@@ -43,7 +55,11 @@
   </div>
 </div>
 </form> --}}
+
+
 {{/with}}
+</section>
+
 
 <br>
 <footer>
@@ -57,3 +73,4 @@
 {{>reviewform}}
 {{/with}}
 </footer>
+

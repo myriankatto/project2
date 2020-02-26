@@ -6,6 +6,7 @@ const routeGuard = require('./../middleware/route-guard');
 const axios = require('axios');
 const User = require('./../models/user');
 const Review = require('./../models/review');
+const alert = require('alert-node');
 
 router.post('/:id/review', routeGuard(true), (req, res, next) => {
   const id = req.params.id;
@@ -83,7 +84,7 @@ router.post('/:id', (req, res, next) => {
   axios
     .get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
     .then(bookInfo => {
-      console.log(bookInfo);
+      // console.log(bookInfo);
       bookData = {
         googleID: bookInfo.data.id,
         title: bookInfo.data.volumeInfo.title,
@@ -96,20 +97,35 @@ router.post('/:id', (req, res, next) => {
       userData = user;
       switch (bookshelf) {
         case 'read':
-          userData.read = [...userData.read, bookData];
-          return User.findByIdAndUpdate(userId, {
-            read: userData.read
-          });
+          if (!bookData) {
+            userData.read = [...userData.read, bookData];
+            return User.findByIdAndUpdate(userId, {
+              read: userData.read
+            });
+          } else {
+            alert('This book is already in the shelf');
+            break;
+          }
         case 'reading':
-          userData.reading = [...userData.reading, bookData];
-          return User.findByIdAndUpdate(userId, {
-            reading: userData.reading
-          });
+          if (!bookData) {
+            userData.reading = [...userData.reading, bookData];
+            return User.findByIdAndUpdate(userId, {
+              reading: userData.reading
+            });
+          } else {
+            alert('This book is already in the shelf');
+            break;
+          }
         case 'toRead':
-          userData.toRead = [...userData.toRead, bookData];
-          return User.findByIdAndUpdate(userId, {
-            toRead: userData.toRead
-          });
+          if (!bookData) {
+            userData.toRead = [...userData.toRead, bookData];
+            return User.findByIdAndUpdate(userId, {
+              toRead: userData.toRead
+            });
+          } else {
+            alert('This book is already in the shelf');
+            break;
+          }
       }
     })
     .then(() => {

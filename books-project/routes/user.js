@@ -73,7 +73,7 @@ router.post('/:userId/reading/:bookId/delete', routeGuard(true), (req, res, next
       next(error);
     }
   });
-  res.redirect(`/user/${userId}/profile`);
+  res.redirect(`/user/${userId}/reading`);
 });
 
 router.post('/:userId/toread/:bookId/delete', routeGuard(true), (req, res, next) => {
@@ -84,7 +84,7 @@ router.post('/:userId/toread/:bookId/delete', routeGuard(true), (req, res, next)
       next(error);
     }
   });
-  res.redirect(`/user/${userId}/profile`);
+  res.redirect(`/user/${userId}/toread`);
 });
 
 router.post('/:userId/read/:bookId/delete', routeGuard(true), (req, res, next) => {
@@ -95,7 +95,7 @@ router.post('/:userId/read/:bookId/delete', routeGuard(true), (req, res, next) =
       next(error);
     }
   });
-  res.redirect(`/user/${userId}/profile`);
+  res.redirect(`/user/${userId}/read`);
 });
 
 router.get('/:userId/edit', routeGuard(true), (req, res, next) => {
