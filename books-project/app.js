@@ -14,8 +14,6 @@ const serveFavicon = require('serve-favicon');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const passportConfigure = require('./passport-configuration.js');
 
-
-
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const listRouter = require('./routes/list');
@@ -25,7 +23,6 @@ const bookRouter = require('./routes/book');
 const hbs = require('hbs');
 const handlebarsHelperDate = require('helper-date');
 
-
 const app = express();
 
 app.set('views', join(__dirname, 'views'));
@@ -33,15 +30,14 @@ app.set('view engine', 'hbs');
 
 hbs.registerHelper('date', handlebarsHelperDate);
 
-hbs.registerHelper('limitandreverse', ((arr, limit) => {
-  if (!Array.isArray(arr)) { 
-    return []; 
+hbs.registerHelper('limitandreverse', (arr, limit) => {
+  if (!Array.isArray(arr)) {
+    return [];
   }
   return arr.reverse().slice(0, limit);
-}));
+});
 
-hbs.registerHelper('reverse', (array) => array.reverse());
-
+hbs.registerHelper('reverse', array => array.reverse());
 
 hbs.registerPartials(join(__dirname, 'views/partials'));
 

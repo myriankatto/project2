@@ -6,6 +6,7 @@ const routeGuard = require('./../middleware/route-guard');
 const axios = require('axios');
 
 const User = require(`./../models/user`);
+const Review = require('./../models/review');
 
 router.get('/:userId/account', routeGuard(true), (req, res, next) => {
   const { userId } = req.params;
@@ -22,9 +23,15 @@ router.get('/:userId/account', routeGuard(true), (req, res, next) => {
 
 router.get('/:userId/profile', (req, res, next) => {
   const { userId } = req.params;
+  let document;
   User.findById(userId)
-    .then(document => {
-      res.render(`user/profile`, { document });
+    .then(result => {
+      document = result;
+      return Review.find({ creator: userId });
+    })
+    .then(reviews => {
+      console.log(reviews);
+      res.render(`user/profile`, { document, reviews });
     })
     .catch(error => {
       next(error);
