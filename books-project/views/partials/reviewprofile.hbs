@@ -1,0 +1,13 @@
+<div class="review-profile">
+<a href="/book/{{book.googleID}}">
+  <img src="{{book.imageUrl}}"/>
+  <p><strong>{{ book.title }}</strong></p>
+</a>
+{{#each this.book.author}}
+<p><small>by {{ this }}</small></p>
+{{/each}}
+<small>{{ date creationDate 'DD/MM/YYYY'}}</small> 
+<p>rate: {{ rate }}</p>
+<p>{{ content }}</p>
+</div>
+<br>

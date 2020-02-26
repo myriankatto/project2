@@ -30,7 +30,7 @@ router.get('/:userId/profile', (req, res, next) => {
       return Review.find({ creator: userId });
     })
     .then(reviews => {
-      console.log(reviews);
+      // console.log(reviews);
       res.render(`user/profile`, { document, reviews });
     })
     .catch(error => {

@@ -8,27 +8,48 @@ const User = require('./../models/user');
 const Review = require('./../models/review');
 const alert = require('alert-node');
 
-router.post('/:id/review', routeGuard(true), (req, res, next) => {
-  const id = req.params.id;
+router.post('/:bookId/review', routeGuard(true), (req, res, next) => {
+  const { bookId } = req.params;
   const userId = req.user._id;
   const { content, rate } = req.body;
 
-  User.findById(userId)
+  let bookData;
+
+  axios
+    .get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
+    .then(bookInfo => {
+      if (bookInfo.data.volumeInfo.imageLinks) {
+        bookData = {
+          googleID: bookInfo.data.id,
+          title: bookInfo.data.volumeInfo.title,
+          author: bookInfo.data.volumeInfo.authors,
+          imageUrl: bookInfo.data.volumeInfo.imageLinks.thumbnail
+        };
+      } else {
+        bookData = {
+          googleID: bookInfo.data.id,
+          title: bookInfo.data.volumeInfo.title,
+          author: bookInfo.data.volumeInfo.authors,
+          imageUrl:
+            'https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg'
+        };
+      }
+      return User.findById(userId);
+    })
     .then(user => {
       if (!user) {
         return Promise.reject(new Error('NOT_FOUND'));
       } else {
         return Review.create({
-          book: id,
+          book: bookData,
           creator: userId,
           content,
           rate
         });
       }
     })
-
     .then(() => {
-      res.redirect(`/book/${id}`);
+      res.redirect(`/book/${bookId}`);
     })
 
     .catch(error => {
@@ -36,20 +57,23 @@ router.post('/:id/review', routeGuard(true), (req, res, next) => {
     });
 });
 
-router.get('/:id', (req, res, next) => {
-  const id = req.params.id;
+router.get('/:bookId', (req, res, next) => {
+  const { bookId } = req.params;
   let data;
 
-  const requestPromise = axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
+  const requestPromise = axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`);
 
   requestPromise
     .then(output => {
       data = output.data;
 
-      return Review.find({ book: id }).populate(' creator ');
+      return Review.find({
+        'book.googleID': bookId
+      }).populate(' creator ');
     })
 
     .then(reviews => {
+      console.log(reviews);
       res.render('book/single', { data, reviews });
     })
 
@@ -58,24 +82,8 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-// router.get('/:id', (req, res, next) => {
-//   const id = req.params.id;
-
-//   const requestPromise = axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
-
-//   requestPromise
-//     .then(output => {
-//       const data = output.data;
-//       //console.log(data);
-//       res.render('book/single', { data });
-//     })
-//     .catch(error => {
-//       console.log(error);
-//     });
-// });
-
-router.post('/:id', (req, res, next) => {
-  const bookId = req.params.id;
+router.post('/:bookId', (req, res, next) => {
+  const { bookId } = req.params;
   const bookshelf = req.body.bookshelf;
   const userId = req.user._id;
   //first thing is to look up the users information

@@ -5,7 +5,18 @@ const mongoose = require('mongoose');
 const reviewSchema = new mongoose.Schema(
   {
     book: {
-      type: String
+      googleID: {
+        type: String
+      },
+      title: {
+        type: String
+      },
+      author: {
+        type: Array
+      },
+      imageUrl: {
+        type: String
+      }
     },
     creator: {
       type: mongoose.Schema.Types.ObjectId,
