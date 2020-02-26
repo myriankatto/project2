@@ -105,4 +105,54 @@ router.post('/:userId/edit', routeGuard(true), (req, res, next) => {
     });
 });
 
+router.post('/:userId/delete', routeGuard(true), (req, res, next) => {
+  const { userId } = req.params;
+
+  User.findByIdAndRemove(userId)
+
+    .then(() => {
+      res.redirect(`/`);
+    })
+
+    .catch(error => {
+      next(error);
+    });
+});
+
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+const multerStorageCloudinary = require('multer-storage-cloudinary');
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_API_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+const storage = multerStorageCloudinary({
+  cloudinary,
+  folder: 'books-project',
+  allowedFormats: ['jpg', 'png', 'eps']
+});
+
+const uploader = multer({ storage });
+
+router.post('/:userId/picture', routeGuard(true), uploader.single('picture'), (req, res, next) => {
+  const { userId } = req.params;
+  const { url } = req.file;
+
+  console.log(req.file);
+  console.log(userId);
+
+  User.findByIdAndUpdate(userId, { picture: url })
+
+    .then(() => {
+      res.redirect(`/user/${userId}/account`);
+    })
+
+    .catch(error => {
+      next(error);
+    });
+});
+
 module.exports = router;

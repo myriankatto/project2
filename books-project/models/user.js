@@ -24,7 +24,9 @@ const schema = new mongoose.Schema(
       required: true
     },
     picture: {
-      type: String
+      type: String,
+      default:
+        'https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg'
     },
     about: {
       type: String

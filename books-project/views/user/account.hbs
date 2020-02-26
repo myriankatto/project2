@@ -1,4 +1,21 @@
 <h1>Your Account</h1>
+
+<figure>
+<img src="{{user.picture}}" alt="{{user.username}}" />
+</figure>
+
+
+<form enctype="multipart/form-data" method="POST" action="/user/{{user._id}}/picture">
+ 
+  <label for="input-picture">Picture</label>
+  <input type="file" accept="image/*" name="picture" id="input-picture" />  
+
+  <button>Edit</button>
+</form>
+
+
+
+<div class="account">
 <span><strong>Username</strong>: {{user.username}}</span>
 <br />
 <span><strong>Email</strong>: {{user.email}}</span>
@@ -8,3 +25,8 @@
 <span><strong>Location</strong>: {{user.location}}</span>
 <br>
 <a href="/user/{{user._id}}/edit">Edit your account</a>
+<br>
+<form method="POST" action="/user/{{user._id}}/delete">
+  <button>Delete your account</button>
+</form>
+</div>

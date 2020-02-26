@@ -16,7 +16,7 @@ router.post(
   '/sign-up',
   routeGuard(false),
   passport.authenticate('local-sign-up', {
-    successRedirect: '/',
+    successRedirect: `/`,
     failureRedirect: '/authentication/sign-up'
   })
 );
