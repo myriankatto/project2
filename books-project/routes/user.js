@@ -74,6 +74,7 @@ router.get('/:userId/toread', (req, res, next) => {
 
 router.get('/:userId/reading', (req, res, next) => {
   const { userId } = req.params;
+
   User.findById(userId)
     .then(user => {
       res.render(`bookshelves/reading`, { user });
@@ -81,6 +82,42 @@ router.get('/:userId/reading', (req, res, next) => {
     .catch(error => {
       next(error);
     });
+});
+
+router.post('/reading/:bookId/delete', routeGuard(true), (req, res, next) => {
+  const userId = req.user._id;
+  const { bookId } = req.params;
+  let doc = req.user.reading.id(bookId).remove();
+  req.user.save(error => {
+    if (error) {
+      next(error);
+    }
+  });
+  res.redirect(`/user/${userId}/profile`);
+});
+
+router.post('/toread/:bookId/delete', routeGuard(true), (req, res, next) => {
+  const userId = req.user._id;
+  const { bookId } = req.params;
+  let doc = req.user.toRead.id(bookId).remove();
+  req.user.save(error => {
+    if (error) {
+      next(error);
+    }
+  });
+  res.redirect(`/user/${userId}/profile`);
+});
+
+router.post('/read/:bookId/delete', routeGuard(true), (req, res, next) => {
+  const userId = req.user._id;
+  const { bookId } = req.params;
+  let doc = req.user.read.id(bookId).remove();
+  req.user.save(error => {
+    if (error) {
+      next(error);
+    }
+  });
+  res.redirect(`/user/${userId}/profile`);
 });
 
 router.get('/:userId/edit', routeGuard(true), (req, res, next) => {

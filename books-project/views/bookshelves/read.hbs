@@ -8,6 +8,9 @@
         <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
     <div class="card-body">
     <p class="card-text">{{ title }} by {{ author }}<br> </p>
+     <form action="/user/read/{{ _id }}/delete" method="POST">
+        <button class="remove-book">X</button>
+      </form>
        </div>
       </div>
       </div> 
@@ -15,11 +18,3 @@
     </div>
   </div>  
 
-{{!--   
-{{#each user}}
-
-      <form action="/user/{{ _id }}/read/delete" method="POST">
-        <button class="remove-book">X</button>
-      </form>
-
-{{/each}} --}}

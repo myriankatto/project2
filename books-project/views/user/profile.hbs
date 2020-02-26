@@ -13,17 +13,14 @@
   <div class="row">
 {{#each user.read}}
     <div class="col-sm">
-      {{!-- <a href="/book/{{ googleID }}"> --}}
+      <a href="/book/{{ googleID }}">
       <div class="card" style="width: 6rem;">
         <img src="{{imageUrl}}" class="card-img-top"alt="{{title}}">
     <div class="card-body">
     <p class="card-text">{{title}} by {{author}}<br> </p>
-      {{!-- <form method="POST">
-        <button class="remove-book">X</button>
-      </form> --}}
        </div>
       </div>
-      {{!-- </a> --}}
+      </a>
       </div>
 
 
@@ -39,6 +36,7 @@
   <div class="row">
 {{#each document.toRead}}
     <div class="col-sm">
+            <a href="/book/{{ googleID }}">
       <div class="card" style="width: 6rem;">
         <img src="{{imageUrl}}" class="card-img-top"alt="{{title}}">
     <div class="card-body">
@@ -48,6 +46,7 @@
       </div>
 {{/each}}
     </div>
+          </a>
   </div>  
 
 <div class="container">
@@ -56,6 +55,7 @@
   <div class="row">
 {{#each document.reading}}
     <div class="col-sm">
+    <a href="/book/{{ googleID }}">
       <div class="card" style="width: 6rem;">
         <img src="{{imageUrl}}" class="card-img-top"alt="{{title}}">
     <div class="card-body">
@@ -65,4 +65,5 @@
       </div>
 {{/each}}
     </div>
+    </a>
   </div>  
