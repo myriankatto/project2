@@ -1,6 +1,7 @@
 <div class="review">
+<img src="{{creator.picture}}"/>
 <p><a href="/user/{{creator._id}}/profile">{{ creator.username }}</a></p>
-<p>{{ creationDate }}</p>
-<p>{{ rate }}</p>
+<small>{{ date creationDate 'DD/MM/YYYY'}}</small> 
+<p>rate: {{ rate }}</p>
 <p>{{ content }}</p>
 </div>

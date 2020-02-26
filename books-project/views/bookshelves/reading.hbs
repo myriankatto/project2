@@ -2,7 +2,7 @@
 <h2>Reading</h2>
   <div class="row">
 {{#with user}}
-{{#each this.reading}}
+{{#each (reverse this.reading)}}
   <div class="col-sm">
       <div class="card" style="width: 6rem;">
         <img src="{{imageUrl}}" class="card-img-top"alt="{{title}}">

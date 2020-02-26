@@ -12,7 +12,7 @@ router.get('/search', (req, res, next) => {
   const term = req.query.term;
 
   const requestPromise = axios.get(
-    `https://www.googleapis.com/books/v1/volumes?q=${term}&maxResults=30`
+    `https://www.googleapis.com/books/v1/volumes?q=${term}&maxResults=40`
   );
 
   requestPromise

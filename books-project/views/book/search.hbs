@@ -1,13 +1,20 @@
+<div class="container">
 <h1>Search results</h1>
-
-
+  <div class="row">
 {{#each data}}
-
-<a href="/book/{{ id }}">
-{{ volumeInfo.title }} || by {{ volumeInfo.authors.[0] }}
-<img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
-</a>
-<br>
-
-
+    <div class="col-sm">
+  <a href="/book/{{ id }}">
+      <div class="card" style="width: 6rem;">
+      <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
+          
+          <div class="card-body">
+          <p class="card-text">{{ volumeInfo.title }} || by {{ volumeInfo.authors.[0] }}</p>
+          </div>
+          </div>
+    </a>
+      </div>
 {{/each}}
+    </div>
+</div>
+
+

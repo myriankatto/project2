@@ -11,7 +11,7 @@
   <h2>Read</h2>
   <a href="/user/{{ document.id }}/read">View all books</a>
   <div class="row">
-    {{#each document.read}}
+    {{#each (limitandreverse document.read 6)}}
       <div class="col-sm">
         <a href="/book/{{ googleID }}">
         <div class="card" style="width: 6rem;">
@@ -32,7 +32,7 @@
 <h2>To Read</h2>
 <a href="/user/{{ document.id }}/toread">View all books</a>
   <div class="row">
-{{#each document.toRead}}
+{{#each (limitandreverse document.toRead 6)}}
     <div class="col-sm">
             <a href="/book/{{ googleID }}">
       <div class="card" style="width: 6rem;">
@@ -51,7 +51,7 @@
 <h2>Reading</h2>
 <a href="/user/{{ document.id }}/reading">View all books</a>
   <div class="row">
-{{#each document.reading}}
+{{#each (limitandreverse document.reading 6)}}
     <div class="col-sm">
     <a href="/book/{{ googleID }}">
       <div class="card" style="width: 6rem;">

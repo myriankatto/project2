@@ -31,6 +31,17 @@ app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 hbs.registerHelper('date', handlebarsHelperDate);
+
+hbs.registerHelper('limitandreverse', ((arr, limit) => {
+  if (!Array.isArray(arr)) { 
+    return []; 
+  }
+  return arr.reverse().slice(0, limit);
+}));
+
+hbs.registerHelper('reverse', (array) => array.reverse());
+
+
 hbs.registerPartials(join(__dirname, 'views/partials'));
 
 app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
