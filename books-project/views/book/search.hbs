@@ -4,8 +4,7 @@
 {{#each data}}
 
 <a href="/book/{{ id }}">
-{{ volumeInfo.title }}
-{{ volumeInfo.authors.[0] }}
+{{ volumeInfo.title }} || by {{ volumeInfo.authors.[0] }}
 <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
 </a>
 <br>

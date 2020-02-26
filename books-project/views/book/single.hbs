@@ -2,11 +2,25 @@
 
 {{#with data}}
 <h4>{{ volumeInfo.title }}</h4>
-<br>
-{{ volumeInfo.authors.[0] }}
+<p>{{ volumeInfo.description }}</p>
+<p>Author:</p>
+{{#each volumeInfo.authors}}
+<ul>
+<li>{{ this }}</li>
+</ul>
+{{/each}}
+<p>Year: {{ volumeInfo.publishedDate }}</p>
+<p>Language: {{ volumeInfo.language }}</p>
+<p>Genre:</p>
+{{#each volumeInfo.categories}}
+<ul>
+<li>{{ this }}</li>
+</ul>
+{{/each}}
 <br>
 <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
 <br>
+
 <form method="POST">
 <label for="bookshelf">Add to your bookshelf</label>
 <select name="bookshelf" id="bookshelf">

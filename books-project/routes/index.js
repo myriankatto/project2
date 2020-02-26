@@ -18,6 +18,7 @@ router.get('/search', (req, res, next) => {
   requestPromise
     .then(output => {
       const data = output.data.items.map(file => {
+        // console.log(file.volumeInfo.authors);
         return file;
       });
       res.render('book/search', { data });
