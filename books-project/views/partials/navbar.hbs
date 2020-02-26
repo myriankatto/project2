@@ -1,6 +1,7 @@
-<nav>
+<nav class="navbar .navbar-dark ">
       <a href="/">Home</a>
       {{#if user}}
+      
          <a href="/user/{{ user._id }}/profile"><img src="{{user.picture}}" alt="{{user.username}}"/></a>
         <a href="/user/{{ user._id }}/account">Account</a>
         <form action="/authentication/sign-out" method="POST">

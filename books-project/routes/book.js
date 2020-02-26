@@ -85,19 +85,29 @@ router.post('/:id', (req, res, next) => {
     .get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
     .then(bookInfo => {
       // console.log(bookInfo);
-      bookData = {
-        googleID: bookInfo.data.id,
-        title: bookInfo.data.volumeInfo.title,
-        author: bookInfo.data.volumeInfo.authors,
-        imageUrl: bookInfo.data.volumeInfo.imageLinks.thumbnail
-      };
+      if (bookInfo.data.volumeInfo.imageLinks) {
+        bookData = {
+          googleID: bookInfo.data.id,
+          title: bookInfo.data.volumeInfo.title,
+          author: bookInfo.data.volumeInfo.authors,
+          imageUrl: bookInfo.data.volumeInfo.imageLinks.thumbnail
+        };
+      } else {
+        bookData = {
+          googleID: bookInfo.data.id,
+          title: bookInfo.data.volumeInfo.title,
+          author: bookInfo.data.volumeInfo.authors,
+          imageUrl:
+            'https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg'
+        };
+      }
       return User.findById(userId);
     })
     .then(user => {
       userData = user;
       switch (bookshelf) {
         case 'read':
-          if (!bookData) {
+          if (!userData.read.includes(bookData)) {
             userData.read = [...userData.read, bookData];
             return User.findByIdAndUpdate(userId, {
               read: userData.read
@@ -107,7 +117,7 @@ router.post('/:id', (req, res, next) => {
             break;
           }
         case 'reading':
-          if (!bookData) {
+          if (!userData.reading.includes(bookData)) {
             userData.reading = [...userData.reading, bookData];
             return User.findByIdAndUpdate(userId, {
               reading: userData.reading
@@ -117,7 +127,7 @@ router.post('/:id', (req, res, next) => {
             break;
           }
         case 'toRead':
-          if (!bookData) {
+          if (!userData.toRead.includes(bookData)) {
             userData.toRead = [...userData.toRead, bookData];
             return User.findByIdAndUpdate(userId, {
               toRead: userData.toRead

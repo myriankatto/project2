@@ -5,8 +5,12 @@
     <div class="col-sm">
   <a href="/book/{{ id }}">
       <div class="card" style="width: 6rem;">
-      <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
-          
+        {{#if volumeInfo.imageLinks.thumbnail}}
+          <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
+          {{else}}
+            <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
+      {{/if}}
+         
           <div class="card-body">
           <p class="card-text">{{ volumeInfo.title }} || by {{ volumeInfo.authors.[0] }}</p>
           </div>
