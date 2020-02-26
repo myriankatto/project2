@@ -1,38 +1,36 @@
-<h1>{{user.username}}'s Profile</h1>
+<h1>{{document.username}}'s Profile</h1>
 <figure>
-<img src="{{user.picture}}" alt="{{user.username}}" />
+<img src="{{document.picture}}" alt="{{document.username}}" />
 </figure>
-<span><strong>About</strong>: {{user.about}}</span>
+<span><strong>About</strong>: {{document.about}}</span>
 <br>
-<span><strong>Location</strong>: {{user.location}}</span>
+<span><strong>Location</strong>: {{document.location}}</span>
 <br>
 
 <div class="container">
-<h2>Read</h2>
-<a href="/user/{{ user.id }}/read">View all books</a>
+  <h2>Read</h2>
+  <a href="/user/{{ document.id }}/read">View all books</a>
   <div class="row">
-{{#each user.read}}
-    <div class="col-sm">
-      <a href="/book/{{ googleID }}">
-      <div class="card" style="width: 6rem;">
-        <img src="{{imageUrl}}" class="card-img-top"alt="{{title}}">
-    <div class="card-body">
-    <p class="card-text">{{title}} by {{author}}<br> </p>
-       </div>
+    {{#each document.read}}
+      <div class="col-sm">
+        <a href="/book/{{ googleID }}">
+        <div class="card" style="width: 6rem;">
+          <img src="{{imageUrl}}" class="card-img-top"alt="{{title}}">
+          <div class="card-body">
+          <p class="card-text">{{title}} by {{author}}<br></p>
+          </div>
+        </div>
+        </a>
       </div>
-      </a>
-      </div>
-
-
-{{/each}}
-    </div>
-  </div>  
+    {{/each}}
+  </div>
+</div>  
 
 
 
 <div class="container">
 <h2>To Read</h2>
-<a href="/user/{{ user.id }}/toread">View all books</a>
+<a href="/user/{{ document.id }}/toread">View all books</a>
   <div class="row">
 {{#each document.toRead}}
     <div class="col-sm">
@@ -46,12 +44,12 @@
       </div>
 {{/each}}
     </div>
-          </a>
+      </a>
   </div>  
 
 <div class="container">
 <h2>Reading</h2>
-<a href="/user/{{ user.id }}/reading">View all books</a>
+<a href="/user/{{ document.id }}/reading">View all books</a>
   <div class="row">
 {{#each document.reading}}
     <div class="col-sm">

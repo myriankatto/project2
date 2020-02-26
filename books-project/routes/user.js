@@ -42,25 +42,6 @@ router.get('/:userId/read', (req, res, next) => {
     });
 });
 
-// router.post('/:userId/read/delete', (req, res, next) => {
-//   const { userId } = req.params;
-//   const { read } = req.user;
-
-//   console.log(userId);
-//   console.log(read);
-
-//   res.redirect('/');
-//   // User.findByIdAndUpdate(userId, data )
-//   //   .then(user => {
-
-//   //     console.log(user);
-//   //   })
-
-//   //   .catch(error => {
-//   //     next(error);
-//   //   });
-// });
-
 router.get('/:userId/toread', (req, res, next) => {
   const { userId } = req.params;
   User.findById(userId)
@@ -84,9 +65,8 @@ router.get('/:userId/reading', (req, res, next) => {
     });
 });
 
-router.post('/reading/:bookId/delete', routeGuard(true), (req, res, next) => {
-  const userId = req.user._id;
-  const { bookId } = req.params;
+router.post('/:userId/reading/:bookId/delete', routeGuard(true), (req, res, next) => {
+  const { userId, bookId } = req.params;
   let doc = req.user.reading.id(bookId).remove();
   req.user.save(error => {
     if (error) {
@@ -96,9 +76,8 @@ router.post('/reading/:bookId/delete', routeGuard(true), (req, res, next) => {
   res.redirect(`/user/${userId}/profile`);
 });
 
-router.post('/toread/:bookId/delete', routeGuard(true), (req, res, next) => {
-  const userId = req.user._id;
-  const { bookId } = req.params;
+router.post('/:userId/toread/:bookId/delete', routeGuard(true), (req, res, next) => {
+  const { userId, bookId } = req.params;
   let doc = req.user.toRead.id(bookId).remove();
   req.user.save(error => {
     if (error) {
@@ -108,9 +87,8 @@ router.post('/toread/:bookId/delete', routeGuard(true), (req, res, next) => {
   res.redirect(`/user/${userId}/profile`);
 });
 
-router.post('/read/:bookId/delete', routeGuard(true), (req, res, next) => {
-  const userId = req.user._id;
-  const { bookId } = req.params;
+router.post('/:userId/read/:bookId/delete', routeGuard(true), (req, res, next) => {
+  const { userId, bookId } = req.params;
   let doc = req.user.read.id(bookId).remove();
   req.user.save(error => {
     if (error) {

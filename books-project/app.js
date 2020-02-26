@@ -14,6 +14,7 @@ const serveFavicon = require('serve-favicon');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const passportConfigure = require('./passport-configuration.js');
 
+
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const listRouter = require('./routes/list');
@@ -22,6 +23,7 @@ const bookRouter = require('./routes/book');
 
 const hbs = require('hbs');
 const handlebarsHelperDate = require('helper-date');
+
 
 const app = express();
 
