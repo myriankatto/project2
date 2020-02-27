@@ -1,12 +1,12 @@
 
 <div class="container">
 <h2>Read</h2>
-  <div class="row">
 {{#with user}}
 {{#each (reverse this.read)}}
- <div class="col-sm">
+  <div class="row">
+ <div class="col-md">
    <a href="/book/{{ googleID }}">
-      <div class="card" style="width: 6rem;">
+      <div class="card" style="width: 10rem;">
          {{#if imageUrl}}
         <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
           {{else}}
@@ -25,4 +25,7 @@
 {{/with}}
     </div>
   </div>  
+
+
+
 
