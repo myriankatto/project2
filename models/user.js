@@ -10,19 +10,19 @@ const schema = new mongoose.Schema(
     },
     username: {
       type: String,
-      trim: true,
-      required: true
+      trim: true
+      // required: true
     },
     email: {
       type: String,
-      required: true,
+      // required: true,
       lowercase: true,
       trim: true,
       unique: true
     },
     passwordHash: {
-      type: String,
-      required: true
+      type: String
+      // required: true
     },
     picture: {
       type: String,
@@ -33,6 +33,12 @@ const schema = new mongoose.Schema(
       type: String
     },
     location: {
+      type: String
+    },
+    facebookId: {
+      type: String
+    },
+    facebookToken: {
       type: String
     },
     read: [

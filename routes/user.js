@@ -23,6 +23,9 @@ router.get('/:userId/account', routeGuard(true), (req, res, next) => {
 
 router.get('/:userId/profile', (req, res, next) => {
   const { userId } = req.params;
+  const loggedUser = req.user._id;
+  let sameUser;
+  userId.toString() === loggedUser.toString() ? (sameUser = true) : (sameUser = false);
   let document;
   User.findById(userId)
     .then(result => {
@@ -31,7 +34,10 @@ router.get('/:userId/profile', (req, res, next) => {
     })
     .then(reviews => {
       // console.log(reviews);
-      res.render(`user/profile`, { document, reviews });
+      reviews.map(review => {
+        return (review.sameUser = sameUser);
+      });
+      res.render(`user/profile`, { document, reviews, sameUser });
     })
     .catch(error => {
       next(error);
