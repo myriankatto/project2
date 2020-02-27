@@ -9,7 +9,7 @@
           <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
           {{else}}
             <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
-      {{/if}}
+        {{/if}}
           <div class="card-body">
           <h2 class="card-text">{{ volumeInfo.title }}</h2>
           <h3> by {{ volumeInfo.authors.[0] }}</h3>
@@ -19,4 +19,7 @@
       </div>
 {{/each}}
     </div>
+
+{{> pagination}}
+
 </div>

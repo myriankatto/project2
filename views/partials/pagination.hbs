@@ -1,0 +1,85 @@
+<footer aria-label="Search results pages">
+  <ul class="pagination">
+
+    {{#if firstPage}}
+    <li class="page-item disabled">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item active"><a class="page-link" href="/search/1/q={{termWithoutSpaces}}">1</a></li>
+    <li class="page-item"><a class="page-link" href="/search/2/q={{termWithoutSpaces}}">2</a></li>
+    <li class="page-item"><a class="page-link" href="/search/3/q={{termWithoutSpaces}}">3</a></li>
+    {{!-- <li class="page-item"><a class="page-link" href="/search/4/q={{termWithoutSpaces}}">4</a></li> --}}
+    <li class="page-item">
+      <a class="page-link" href="/search/2/q={{termWithoutSpaces}}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+    {{/if}}
+
+    {{#if pagesObj.page1}}
+    <li class="page-item disabled">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item active"><a class="page-link" href="/search/1/q={{termWithoutSpaces}}">1</a></li>
+    <li class="page-item"><a class="page-link" href="/search/2/q={{termWithoutSpaces}}">2</a></li>
+    <li class="page-item"><a class="page-link" href="/search/3/q={{termWithoutSpaces}}">3</a></li>
+    {{!-- <li class="page-item"><a class="page-link" href="/search/4/q={{termWithoutSpaces}}">4</a></li> --}}
+    <li class="page-item">
+      <a class="page-link" href="/search/2/q={{termWithoutSpaces}}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+    {{/if}}
+
+    {{#if pagesObj.page2}}
+    <li class="page-item">
+      <a class="page-link" href="/search/1/q={{termWithoutSpaces}}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="/search/1/q={{termWithoutSpaces}}">1</a></li>
+    <li class="page-item active"><a class="page-link" href="/search/2/q={{termWithoutSpaces}}">2</a></li>
+    <li class="page-item"><a class="page-link" href="/search/3/q={{termWithoutSpaces}}">3</a></li>
+    {{!-- <li class="page-item"><a class="page-link" href="/search/4/q={{termWithoutSpaces}}">4</a></li> --}}
+    <li class="page-item">
+      <a class="page-link" href="/search/3/q={{termWithoutSpaces}}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+    {{/if}}
+
+    {{#if pagesObj.page3}}
+    <li class="page-item">
+      <a class="page-link" href="/search/2/q={{termWithoutSpaces}}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="/search/1/q={{termWithoutSpaces}}">1</a></li>
+    <li class="page-item"><a class="page-link" href="/search/2/q={{termWithoutSpaces}}">2</a></li>
+    <li class="page-item active"><a class="page-link" href="/search/3/q={{termWithoutSpaces}}">3</a></li>
+    {{!-- <li class="page-item"><a class="page-link" href="/search/4/q={{termWithoutSpaces}}">4</a></li> --}}
+    <li class="page-item disabled">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+    {{/if}}
+
+  </ul>
+</footer>
+
+{{!-- <footer>
+  <p>Pages: <a href="/search/1/q={{termWithoutSpaces}}">1</a> | <a href="/search/2/q={{termWithoutSpaces}}">2</a> | <a href="/search/3/q={{termWithoutSpaces}}">3</a></p>
+</footer> --}}
