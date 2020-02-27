@@ -1,18 +1,18 @@
 <div class="container">
-<h1>Search results</h1>
+<h4>Your results</h4>
   <div class="row">
 {{#each data}}
-    <div class="col-sm">
+    <div class="col-md">
   <a href="/book/{{ id }}">
-      <div class="card" style="width: 6rem;">
+      <div class="card" style="width: 10rem;">
         {{#if volumeInfo.imageLinks.thumbnail}}
           <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
           {{else}}
             <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
       {{/if}}
-         
           <div class="card-body">
-          <p class="card-text">{{ volumeInfo.title }} || by {{ volumeInfo.authors.[0] }}</p>
+          <h2 class="card-text">{{ volumeInfo.title }}</h2>
+          <h3> by {{ volumeInfo.authors.[0] }}</h3>
           </div>
           </div>
     </a>
@@ -20,8 +20,3 @@
 {{/each}}
     </div>
 </div>
-{{!-- 
-<footer>
-  <p>Pages:</p> <a href="/search">1</a> | <a href="/search/2">2</a> | <a href="/search/3">3</a>
-</footer> --}}
-

@@ -1,46 +1,67 @@
+<div class="container-single">
 
-
-<secion class="container-fluid">
-  <div class="row">
+<div class="container-single-book" style="max-width: 900px;">
+  <div class="row no-gutters">
       {{#with data}}
- <articles class="col-2">
-    {{#if volumeInfo.imageLinks.thumbnail}}
-          <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
+        <div class="col-md-3">
+          {{#if volumeInfo.imageLinks.thumbnail}}
+                <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
           {{else}}
-            <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
+                  <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
           {{/if}}
-  {{#each volumeInfo.authors}}
-    <ul>
-    <li>{{ this }}</li>
-    </ul>
-    {{/each}}
-    <p>{{ date volumeInfo.publishedDate 'YYYY'}}</p>
-    <p>Language: {{ volumeInfo.language }}</p>
-</articles>
+       
+          </div>
+          <div class="col-md-9">
+          <div class="card-body">
+              <h1>{{ volumeInfo.title }} </h1>
+                 <h4>{{ volumeInfo.subtitle }}</h4>
+              {{#each volumeInfo.authors}}
+                <ul>
+                <li>{{ this }}</li>
+                </ul>
+              {{/each}}
+              <p>{{ volumeInfo.description }}</p>
+                     <p >Year: {{ date volumeInfo.publishedDate 'YYYY'}}</p>
+              <p> Language: {{ volumeInfo.language }}</p>  
+              Categories:
+              {{#each volumeInfo.categories}}
+                <ul>
+                <li>{{ this }}</li>
+                </ul>
+              {{/each}}
 
-  <articles class="col-10">
-    <h4>{{ volumeInfo.title }}</h4>
-    <h6>{{ volumeInfo.subtitle }}</h6>
-    <p>{{ volumeInfo.description }}</p>
-    {{#each volumeInfo.categories}}
-    <ul>
-    <li>{{ this }}</li>
-    </ul>
-    {{/each}}
-    <br>
-</articles>
 
+            
+        
+            </div>
+          </div>
+    {{/with}}
+  </div>
+
+
+</div>
  
+{{!-- <div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="..." class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div> --}}
 
   
 
-{{/with}}
 
-</div>
-</section>
+<div class="single-view">
 
   {{#if user}}
-<section>
 <form method="POST">
 <label for="bookshelf">Add to your bookshelf</label>
 <select name="bookshelf" id="bookshelf">
@@ -52,6 +73,8 @@
 </form>
 
 {{/if}}
+
+
 {{!-- <form method="POST">
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,12 +90,10 @@
 
 
 
-</section>
-
 
 <br>
-<footer>
-<h2>Users' Reviews</h2>
+
+<h4>Users' Reviews</h4>
 
 {{#each reviews}}
 {{>review}}
@@ -84,7 +105,8 @@
   {{/with}}
 {{else}}
 <p><a href="/authentication/sign-in">Sign In</a> or <a href="/authentication/sign-up">Create an account </a> to review this book.</p>
-<a href="/"
 {{/if}}  
-</footer>
 
+</div>
+
+</div>
