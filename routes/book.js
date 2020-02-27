@@ -32,22 +32,19 @@ router.post('/:bookId/review', routeGuard(true), (req, res, next) => {
   axios
     .get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
     .then(bookInfo => {
-      if (bookInfo.data.volumeInfo.imageLinks) {
-        bookData = {
-          googleID: bookInfo.data.id,
-          title: bookInfo.data.volumeInfo.title,
-          author: bookInfo.data.volumeInfo.authors,
-          imageUrl: bookInfo.data.volumeInfo.imageLinks.thumbnail
-        };
-      } else {
-        bookData = {
-          googleID: bookInfo.data.id,
-          title: bookInfo.data.volumeInfo.title,
-          author: bookInfo.data.volumeInfo.authors,
-          imageUrl:
-            'https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg'
-        };
-      }
+      let image;
+      const defaultImage =
+        'https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg';
+      const apiImage = bookInfo.data.volumeInfo.imageLinks;
+      apiImage ? (image = apiImage.thumbnail) : (image = defaultImage);
+
+      bookData = {
+        googleID: bookInfo.data.id,
+        title: bookInfo.data.volumeInfo.title,
+        author: bookInfo.data.volumeInfo.authors,
+        imageUrl: image
+      };
+
       return User.findById(userId);
     })
     .then(user => {
@@ -118,6 +115,7 @@ router.post('/:bookId', (req, res, next) => {
         author: bookInfo.data.volumeInfo.authors,
         imageUrl: image
       };
+
       return User.findById(userId);
     })
     .then(user => {
@@ -125,42 +123,58 @@ router.post('/:bookId', (req, res, next) => {
       switch (bookshelf) {
         case 'read':
           // eslint-disable-next-line no-case-declarations
-          let bookExists = false;
+          let bookExistsInReadShelf = false;
           for (let i = 0; i < userData.read.length; i++) {
             if (userData.read[i].googleID === bookData.googleID) {
-              bookExists = true;
+              bookExistsInReadShelf = true;
             }
           }
-          if (!bookExists) {
+          if (!bookExistsInReadShelf) {
             userData.read = [...userData.read, bookData];
             return User.findByIdAndUpdate(userId, {
               read: userData.read
             });
           } else {
-            //console.log('book already exists');
+            //console.log('This book is already in the shelf');
             alert('This book is already in the shelf');
           }
           break;
         case 'reading':
-          if (!userData.reading.includes(bookData)) {
+          // eslint-disable-next-line no-case-declarations
+          let bookExistsInReadingShelf = false;
+          for (let i = 0; i < userData.reading.length; i++) {
+            if (userData.reading[i].googleID === bookData.googleID) {
+              bookExistsInReadingShelf = true;
+            }
+          }
+          if (!bookExistsInReadingShelf) {
             userData.reading = [...userData.reading, bookData];
             return User.findByIdAndUpdate(userId, {
               reading: userData.reading
             });
           } else {
+            // console.log('This book is already in the shelf');
             alert('This book is already in the shelf');
-            break;
           }
+          break;
         case 'toRead':
-          if (!userData.toRead.includes(bookData)) {
+          // eslint-disable-next-line no-case-declarations
+          let bookExistsInToReadShelf = false;
+          for (let i = 0; i < userData.toRead.length; i++) {
+            if (userData.toRead[i].googleID === bookData.googleID) {
+              bookExistsInToReadShelf = true;
+            }
+          }
+          if (!bookExistsInToReadShelf) {
             userData.toRead = [...userData.toRead, bookData];
             return User.findByIdAndUpdate(userId, {
               toRead: userData.toRead
             });
           } else {
+            // console.log('This book is already in the shelf');
             alert('This book is already in the shelf');
-            break;
           }
+          break;
       }
     })
     .then(() => {
