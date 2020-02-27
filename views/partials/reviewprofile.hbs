@@ -1,34 +1,44 @@
 <div class="review-profile-container">
-<div class="review-profile-top">
-  <div class="review-profile-top-image">
-    <a href="/book/{{book.googleID}}">
-    <img src="{{book.imageUrl}}"/>
+
+  <div class="review-profile-top">
+
+    <div class="review-profile-top-image">
+      <a href="/book/{{book.googleID}}">
+      <img src="{{book.imageUrl}}"/>
+      </a>
+
+    </div>
+
+    <div class="review-profile-top-info">
+      <a href="/book/{{book.googleID}}">
+        <h3><strong>{{ book.title }}</strong></h3>
+      </a>
+      <p>By: {{book.author.[0]}} 
+      <br>
+      <strong>rate: {{ rate }}</strong>
+      <br>
+      <small>{{ date creationDate 'DD/MM/YYYY'}}</small> </p>
+    </div>
+
   </div>
-  <div class="review-profile-top-info">
-    <p><strong>{{ book.title }}</strong></p>
-    </a>
-    {{#each this.book.author}}
-    <p><small>by {{ this }}</small></p>
-    {{/each}}
-  </div>
-</div>
-<div class="review-profile-bottom">
-  <div class="review-profile-bottom-rate">
-    <p><strong>rate: {{ rate }}</strong></p>
-    <small>{{ date creationDate 'DD/MM/YYYY'}}</small> 
-  </div>
-  <div class="review-profile-bottom-content">
-    <p>{{ content }}</p>
-    {{#if sameUser}}
-      <form action="/book/{{ book.googleID }}/review/edit" method="POST">
-        <button class="review-edit-btn">Edit Review</button>
-      </form>
-      <form action="/book/{{ book.googleID }}/review/delete" method="POST">
-        <button class="review-delete-btn">Delete Review</button>
-      </form>
-    {{/if}}
+
+  <div class="review-profile-bottom">
+    <div class="review-profile-bottom-content">
+      <p>{{ content }}</p>
+    </div>
+
+    <div class="review-profile-btn">
+      {{#if sameUser}}
+        <form action="/book/{{ book.googleID }}/review/edit" method="POST">
+          <button class="review-edit-btn">Edit Review</button>
+        </form>
+        <form action="/book/{{ book.googleID }}/review/delete" method="POST">
+          <button class="review-delete-btn">Delete Review</button>
+        </form>
+      {{/if}}
+    </div>
 
   </div>
 </div>
-</div>
-<br>
+
+

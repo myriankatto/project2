@@ -11,7 +11,7 @@
   <h1>{{document.username}}'s Profile</h1>
 
 
-<span><strong>About</strong>: {{document.about}}</span>
+<p><strong>About</strong>: {{document.about}}</p>
 <br>
 <span><strong>Location</strong>: {{document.location}}</span>
 <br>
@@ -19,20 +19,22 @@
 </div>
 </div>
 
-<div class="shelves-conatainer">
+<div class="shelves-container">
 
 {{> readingshelfprofile}}
 {{> toreadshelfprofile}}
 {{> readshelfprofile}}
 
+</div>
+
 <footer class="profile-footer">
   <h2>{{document.username}}'s Reviews</h2>
+    <div class="reviews-container">
 {{#each reviews}}
 
 {{> reviewprofile}}
 
 {{/each}}
-
-</footer>
 </div>
+</footer>
 </div>

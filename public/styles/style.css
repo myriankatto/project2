@@ -17,7 +17,7 @@ a {
   color: inherit;
   text-decoration: none; }
   a a:hover {
-    background-color: rgba(0, 0, 0, 0.308); }
+    background-color: #232b3b; }
 
 button {
   padding: 0;
@@ -155,15 +155,6 @@ textarea {
   min-height: 8em;
   resize: vertical; }
 
-.col-sm {
-  flex-grow: 0; }
-
-.remove-book {
-  width: 10px;
-  margin: 0;
-  padding: 0;
-  border: none; }
-
 .card-body-white {
   color: white;
   padding: 20px 30px; }
@@ -277,8 +268,8 @@ textarea {
     margin: 0 auto; }
 
 .review {
-  background-color: #203052;
-  border-radius: 20px;
+  background-color: #0e121a;
+  border-radius: 10px;
   color: white;
   margin: 0 auto;
   width: 70%; }
@@ -290,43 +281,65 @@ textarea {
     font-size: 1em; }
 
 .profile-footer {
-  width: 60%;
+  width: 1000px;
   margin: 0 auto; }
   .profile-footer h2 {
     padding: 30px;
     font-size: 1.3em;
     text-align: center; }
-  .profile-footer .review-profile-container {
-    border: lightgrey solid 1px;
-    border-radius: 10px;
-    padding: 1em; }
 
-.review-profile-top {
-  color: white;
+.reviews-container {
   display: flex;
-  line-height: 1.5em; }
-  .review-profile-top image {
-    margin-right: 1em;
-    width: 30px; }
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto; }
 
-.review-profile-bottom {
-  color: white;
-  line-height: 1.5em;
-  margin-top: 1em; }
-  .review-profile-bottom-rate {
+.review-profile-container {
+  display: flex;
+  flex-direction: column;
+  border: white 1px solid;
+  margin: 10px 0;
+  padding: 20px 30px; }
+  .review-profile-container .review-profile-top {
+    display: flex; }
+    .review-profile-container .review-profile-top-image img {
+      margin-right: 1em;
+      width: 80px; }
+    .review-profile-container .review-profile-top-info p {
+      color: white;
+      line-height: 1.5em;
+      font-size: 1em; }
+    .review-profile-container .review-profile-top-info h3 {
+      font-size: 1.2em; }
+  .review-profile-container .review-profile-bottom {
+    padding-top: 25px; }
+    .review-profile-container .review-profile-bottom p {
+      font-size: 0.9em;
+      line-height: 1.5em;
+      font-weight: 300; }
+  .review-profile-container .review-profile-btn {
     display: flex;
-    justify-content: space-between; }
+    justify-content: flex-end; }
+    .review-profile-container .review-profile-btn button {
+      border: 1px white solid;
+      border-radius: 5px;
+      color: white;
+      padding: 0 10px;
+      margin-right: 10px; }
+      .review-profile-container .review-profile-btn button:hover {
+        background-color: #ffffff34;
+        color: white;
+        text-decoration: none; }
 
 .profile-container {
   margin: 0 auto;
   width: 90%;
   padding-top: 100px; }
   .profile-container .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    border: white 2px solid;
-    color: #232b3b;
-    padding: 30px;
+    background-color: #0e121a;
+    border-radius: 8px;
+    color: white;
+    padding: 20px 20px 20px 30px;
     width: 80%;
     margin: 0 auto; }
     .profile-container .profile-card h1 {
@@ -335,7 +348,15 @@ textarea {
     .profile-container .profile-card img {
       width: 200px;
       margin-top: 10px;
-      margin-left: 20px; }
+      margin-left: 20px;
+      border-radius: 50%; }
+    .profile-container .profile-card span {
+      font-size: 0.9em;
+      font-weight: 300; }
+    .profile-container .profile-card p {
+      font-size: 0.8em;
+      line-height: 1.5em;
+      font-weight: 200; }
 
 .account-container {
   margin: 0 auto;
@@ -379,16 +400,14 @@ textarea {
         color: white;
         text-decoration: none; }
 
-.shelves-conatainer {
+.shelves-container {
   background-color: inherit;
   color: white;
   margin: 40px auto;
   width: 90%; }
-  .shelves-conatainer .row {
-    margin: 0; }
-  .shelves-conatainer p {
+  .shelves-container p {
     font-weight: 700;
-    font-size: 0.7em;
+    font-size: 1.2em;
     margin: 0; }
 
 .more-btn {
@@ -397,9 +416,28 @@ textarea {
 
 .container-shelf {
   border-radius: 20px;
-  margin: 10px auto;
-  padding: 20px 10px;
-  width: 80%; }
+  margin: 0 auto;
+  padding: 100px 10px;
+  width: 80%;
+  position: relative; }
+  .container-shelf h2 {
+    text-align: center; }
+  .container-shelf .remove-btn {
+    width: 20px;
+    float: left;
+    position: absolute;
+    padding-top: 325px;
+    margin-left: 60px;
+    z-index: 1; }
+  .container-shelf p {
+    font-weight: 500;
+    font-size: 0.8em;
+    color: white;
+    text-align: center;
+    vertical-align: middle; }
+  .container-shelf .card {
+    background-color: #0e121a;
+    min-height: 320px; }
 
 .container-search {
   border-radius: 20px;
@@ -430,9 +468,5 @@ textarea {
     color: #b4b4b4; }
   .edit-container h1 {
     font-size: 1.5em; }
-
-.reviews-container {
-  display: flex;
-  justify-content: space-between; }
 
 /*# sourceMappingURL=style.css.map */
