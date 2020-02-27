@@ -5,13 +5,13 @@
 {{#each (reverse this.reading)}}
   <div class="col-sm">
        <a href="/book/{{ googleID }}">
-      <div class="card" style="width: 6rem;">
+      <div class="card" style="width: 8rem;">
       {{#if imageUrl}}
         <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
           {{else}}
             <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
       {{/if}}    <div class="card-body">
-    <p class="card-text">{{title}} by {{author}}<br> </p>
+    <p class="card-text">{{title}}</p>
          </a>
      <form action="/user/{{../_id}}/reading/{{ _id }}/delete" method="POST">
         <button class="remove-book">X</button>

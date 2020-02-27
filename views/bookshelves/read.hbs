@@ -1,19 +1,19 @@
 
-<div class="container">
+<div class="container-shelf">
 <h2>Read</h2>
 {{#with user}}
 {{#each (reverse this.read)}}
   <div class="row">
  <div class="col-md">
    <a href="/book/{{ googleID }}">
-      <div class="card" style="width: 10rem;">
+      <div class="card" style="width: 8rem;">
          {{#if imageUrl}}
         <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
           {{else}}
             <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
       {{/if}}
     <div class="card-body">
-    <p class="card-text">{{ title }} by {{ author }}<br> </p>
+    <p class="card-text">{{ title }}</p>
       </a>
      <form action="/user/{{../_id}}/read/{{ _id }}/delete" method="POST">
         <button class="remove-book">X</button>

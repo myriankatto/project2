@@ -1,8 +1,11 @@
+<div class="container">
+  <div class="account-card">
+
 <h1>Your Account</h1>
 
-<figure>
+
 <img src="{{user.picture}}" alt="{{user.username}}" />
-</figure>
+
 
 
 <form enctype="multipart/form-data" method="POST" action="/user/{{user._id}}/picture">
@@ -24,9 +27,14 @@
 <br>
 <span><strong>Location</strong>: {{user.location}}</span>
 <br>
-<a href="/user/{{user._id}}/edit">Edit your account</a>
+
 <br>
+<a href="/user/{{user._id}}/edit">Edit your account</a>
+
 <form method="POST" action="/user/{{user._id}}/delete">
   <button>Delete your account</button>
 </form>
+</div>
+
+</div>
 </div>

@@ -60,7 +60,8 @@ button {
   button,
   .btn {
     margin: 0 auto;
-    width: 10%;
+    // width: 10%;
+
     border: none;
     padding: 1em;
     border-radius: 0;
@@ -79,6 +80,8 @@ button {
 
 .navbar {
   display: flex;
+  width: 90%;
+  margin: 0 auto;
   img {
     height: 20px;
     padding: 0 10px;
@@ -123,19 +126,27 @@ button {
   padding: 20px 10px;
   width: 80%;
   .container-single-book {
-    background-color: white;
+    background-color: inhert;
+    border: white 2px solid;
     border-radius: 20px;
     color: $darkblue;
     margin: 0 auto;
+    .col-md-9 {
+      padding: 0 30px;
+    }
   }
   .single-view {
     margin: 30px auto;
     align-items: center;
+    display: inline;
     label,
-    select,
     textarea {
-      width: 200px;
       margin: 0 auto;
+    }
+    select {
+      margin: 0 auto;
+      background-color: white;
+      color: $darkblue;
     }
     h4,
     p {
@@ -143,10 +154,11 @@ button {
     }
     button {
       border: 1px white solid;
-      border-radius: 10px;
+      border-radius: 5px;
       color: white;
       width: 100px;
       margin: 20px auto;
+      padding: 0;
       &:hover {
         background-color: $whitefade;
         color: white;
@@ -199,6 +211,47 @@ textarea {
   border: none;
 }
 
+.card-body-white {
+  color: white;
+  padding: 20px 30px;
+  li {
+    list-style: none;
+    font-size: 0.8em;
+    line-height: 0.9em;
+    // padding-top: 10px;
+  }
+  ul {
+    padding: 0;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 0.8em;
+    line-height: 1.2em;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+  }
+  h3 {
+    line-height: 0.7em;
+    font-size: 0.7em;
+  }
+  h4 {
+    font-size: 0.9em;
+  }
+  h1 {
+    font-size: 1.8em;
+    font-weight: 600;
+  }
+  p {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    font-weight: 400;
+  }
+  h6 {
+    color: rgb(253, 253, 253);
+    font-size: 0.8em;
+    text-align: center;
+  }
+}
 .card-body {
   color: $darkblue;
   li {
@@ -247,6 +300,14 @@ textarea {
 .card {
   margin: 30px 0;
   height: 300px;
+  img {
+    height: 200px;
+  }
+}
+
+.card-shelf {
+  margin: 30px 0;
+  height: 200px;
   img {
     height: 200px;
   }
@@ -313,26 +374,135 @@ textarea {
 }
 
 .profile-footer {
-  width: 70%;
+  width: 60%;
+  margin: 0 auto;
+
+  h2 {
+    padding: 30px;
+    font-size: 1.3em;
+    text-align: center;
+  }
   .review-profile-container {
     border: lightgrey solid 1px;
+    border-radius: 10px;
     padding: 1em;
   }
 }
 
 .review-profile-top {
+  color: white;
   display: flex;
   line-height: 1.5em;
-  &-image {
+  image {
     margin-right: 1em;
+    width: 30px;
   }
 }
 
 .review-profile-bottom {
+  color: white;
   line-height: 1.5em;
   margin-top: 1em;
   &-rate {
     display: flex;
     justify-content: space-between;
   }
+}
+
+.profile-card {
+  background-color: inherit;
+  border: white 2px solid;
+  border-radius: 10px;
+  color: white;
+  margin: 40px auto;
+  padding: 30px;
+  width: 70%;
+
+  h1 {
+    font-size: 1.3em;
+    font-weight: 900;
+  }
+  img {
+    width: 180px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+}
+
+.account-card {
+  background-color: inherit;
+  border: white 2px solid;
+  border-radius: 10px;
+  color: white;
+  margin: 40px auto;
+  padding: 30px;
+  width: 70%;
+
+  h1 {
+    font-size: 1.3em;
+    font-weight: 900;
+    text-align: center;
+  }
+  img {
+    width: 180px;
+    border-radius: 50%;
+  }
+  .account {
+    span {
+      line-height: 1em;
+    }
+  }
+  a {
+    border: 1px white solid;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    padding: 5px 20px;
+    &:hover {
+      background-color: $whitefade;
+      color: white;
+      text-decoration: none;
+    }
+  }
+  button {
+    border: 1px white solid;
+    border-radius: 8px;
+    color: white;
+    width: 200px;
+
+    &:hover {
+      background-color: $whitefade;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.shelves-conatainer {
+  background-color: inherit;
+  color: white;
+  margin: 40px auto;
+  // padding: 30px;
+  width: 90%;
+  .row {
+    margin: 0;
+  }
+  p {
+    font-weight: 700;
+    font-size: 0.7em;
+    margin: 0;
+  }
+}
+
+.more-btn {
+  width: 30px;
+  padding-left: 10px;
+}
+
+.container-shelf {
+  border-radius: 20px;
+  margin: 10px auto;
+  padding: 20px 10px;
+  width: 80%;
 }

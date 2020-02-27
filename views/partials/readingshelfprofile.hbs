@@ -1,21 +1,24 @@
 <div class="container">
-<h4>Reading</h4>
-<a href="/user/{{ document.id }}/reading">View all books</a>
+<h4>Reading<a href="/user/{{ document.id }}/reading"><img class="more-btn"src="/images/ic-more-01.svg"/></a>
+</h4>
+
   <div class="row">
 {{#each (limitandreverse document.reading 6)}}
     <div class="col-sm">
     <a href="/book/{{ googleID }}">
-      <div class="card" style="width: 6rem;">
+      <div class="card-shelf" style="width: 8rem;">
       {{#if imageUrl}}
         <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
           {{else}}
             <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
-      {{/if}}    <div class="card-body">
-    <p class="card-text">{{title}} by {{author}}<br> </p>
-       </div>
+      {{/if}}    
+  
       </div>
       </div>
 {{/each}}
-    </div>
+    </div> 
+
     </a>
   </div>  
+
+
