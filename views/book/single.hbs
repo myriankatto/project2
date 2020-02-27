@@ -93,12 +93,15 @@
 
 
 <br>
-
+<div class="reviews-container row">
+  <div class="users-reviews-container col-md-7">
 <h4>Users' Reviews</h4>
 
 {{#each reviews}}
 {{>review}}
 {{/each}}
+</div>
+<div class="form-reviews-container  col-md-7">
 
 {{#if user}}
   {{#with data}}
@@ -107,7 +110,8 @@
 {{else}}
 <p><a href="/authentication/sign-in">Sign In</a> or <a href="/authentication/sign-up">Create an account </a> to review this book.</p>
 {{/if}}  
-
+</div>
+</div>
 </div>
 
 </div>

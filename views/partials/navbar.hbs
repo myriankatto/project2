@@ -1,11 +1,11 @@
-<nav class="navbar">
+<nav class="navbar navbar-fixed-top">
       <a href="/"><img class="img-logo" src="/images/books-logo-white.svg" alt="books and tea logo"></a>
       
       {{#if user}}
       
          <a href="/user/{{ user._id }}/profile"><img class="img-avatar" src="{{user.picture}}" alt="{{user.username}}"/></a>
         <a href="/user/{{ user._id }}/account"><img src="/images/ic-settings.svg" alt="Account Settings" /></a>
-        <form action="/authentication/sign-out" method="POST">
+        <form class="form-container" action="/authentication/sign-out" method="POST">
           <button><img class="navbar-img"src="/images/ic-logout.svg" alt="Sign Out"/></button>
         </form>
         {{else}}
