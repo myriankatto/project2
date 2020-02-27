@@ -1,0 +1,25 @@
+<div class="review-profile-container">
+<div class="review-profile-top">
+  <div class="review-profile-top-image">
+    <a href="/book/{{book.googleID}}">
+    <img src="{{book.imageUrl}}"/>
+  </div>
+  <div class="review-profile-top-info">
+    <p><strong>{{ book.title }}</strong></p>
+    </a>
+    {{#each this.book.author}}
+    <p><small>by {{ this }}</small></p>
+    {{/each}}
+  </div>
+</div>
+<div class="review-profile-bottom">
+  <div class="review-profile-bottom-rate">
+    <p><strong>rate: {{ rate }}</strong></p>
+    <small>{{ date creationDate 'DD/MM/YYYY'}}</small> 
+  </div>
+  <div class="review-profile-bottom-content">
+    <p>{{ content }}</p>
+  </div>
+</div>
+</div>
+<br>

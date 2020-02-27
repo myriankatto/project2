@@ -8,6 +8,7 @@ $whitefade: #ffffff34;
   &:before,
   &:after {
     box-sizing: border-box;
+    // outline: red solid 1px;
   }
 }
 
@@ -308,5 +309,30 @@ textarea {
       color: white;
       font-size: 1em;
     }
+  }
+}
+
+.profile-footer {
+  width: 70%;
+  .review-profile-container {
+    border: lightgrey solid 1px;
+    padding: 1em;
+  }
+}
+
+.review-profile-top {
+  display: flex;
+  line-height: 1.5em;
+  &-image {
+    margin-right: 1em;
+  }
+}
+
+.review-profile-bottom {
+  line-height: 1.5em;
+  margin-top: 1em;
+  &-rate {
+    display: flex;
+    justify-content: space-between;
   }
 }

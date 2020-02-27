@@ -7,72 +7,16 @@
 <span><strong>Location</strong>: {{document.location}}</span>
 <br>
 
-<div class="container">
-  <h2>Read</h2>
-  <a href="/user/{{ document.id }}/read">View all books</a>
-  <div class="row">
-    {{#each (limitandreverse document.read 6)}}
-      <div class="col-sm">
-        <a href="/book/{{ googleID }}">
-        <div class="card" style="width: 6rem;">
-          {{#if imageUrl}}
-        <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
-          {{else}}
-            <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
-      {{/if}}
-          <div class="card-body">
-          <p class="card-text">{{title}} by {{author}}<br></p>
-          </div>
-        </div>
-        </a>
-      </div>
-    {{/each}}
-  </div>
-</div>  
+{{> readingshelfprofile}}
+{{> toreadshelfprofile}}
+{{> readshelfprofile}}
 
+<footer class="profile-footer">
+  <h2>{{document.username}}'s Reviews</h2>
+{{#each reviews}}
 
+{{> reviewprofile}}
 
-<div class="container">
-<h2>To Read</h2>
-<a href="/user/{{ document.id }}/toread">View all books</a>
-  <div class="row">
-{{#each (limitandreverse document.toRead 6)}}
-    <div class="col-sm">
-            <a href="/book/{{ googleID }}">
-      <div class="card" style="width: 6rem;">
-      {{#if imageUrl}}
-        <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
-          {{else}}
-            <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
-      {{/if}}   
-       <div class="card-body">
-    <p class="card-text">{{title}} by {{author}}<br> </p>
-       </div>
-      </div>
-      </div>
 {{/each}}
-    </div>
-      </a>
-  </div>  
 
-<div class="container">
-<h2>Reading</h2>
-<a href="/user/{{ document.id }}/reading">View all books</a>
-  <div class="row">
-{{#each (limitandreverse document.reading 6)}}
-    <div class="col-sm">
-    <a href="/book/{{ googleID }}">
-      <div class="card" style="width: 6rem;">
-      {{#if imageUrl}}
-        <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
-          {{else}}
-            <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
-      {{/if}}    <div class="card-body">
-    <p class="card-text">{{title}} by {{author}}<br> </p>
-       </div>
-      </div>
-      </div>
-{{/each}}
-    </div>
-    </a>
-  </div>  
+</footer>

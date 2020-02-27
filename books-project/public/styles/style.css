@@ -233,4 +233,23 @@ textarea {
     color: white;
     font-size: 1em; }
 
+.profile-footer {
+  width: 70%; }
+  .profile-footer .review-profile-container {
+    border: lightgrey solid 1px;
+    padding: 1em; }
+
+.review-profile-top {
+  display: flex;
+  line-height: 1.5em; }
+  .review-profile-top-image {
+    margin-right: 1em; }
+
+.review-profile-bottom {
+  line-height: 1.5em;
+  margin-top: 1em; }
+  .review-profile-bottom-rate {
+    display: flex;
+    justify-content: space-between; }
+
 /*# sourceMappingURL=style.css.map */
