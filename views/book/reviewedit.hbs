@@ -1,0 +1,19 @@
+<h3>Edit Review for {{ book.title }}</h3>
+
+<form action="/book/{{ book.googleID }}/review/{{ _id }}/edit" method="POST">
+
+  <label for="input-rate">Rate</label>
+  <select name="rate" id="input-rate">
+    <option value="none" selected disabled hidden> </option>
+    <option value="5">5</option>
+    <option value="4">4</option>
+    <option value="3">3</option>
+    <option value="2">2</option>
+    <option value="1">1</option>
+  </select>
+  
+  <label for="input-content">Review</label>
+  <textarea name="content" id="input-content" placeholder="What do you think about this book?">{{content}}</textarea>
+
+  <button>Submit changes</button>
+</form>
