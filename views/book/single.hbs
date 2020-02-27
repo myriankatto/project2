@@ -36,82 +36,52 @@
             </div>
           </div>
     {{/with}}
+<div class="add-bookshelf">
+    {{#if user}}
+          <form method="POST">
+            <label for="bookshelf">Add to your bookshelf:</label><br>
+            <select name="bookshelf" id="bookshelf">
+                <option value="toRead">To Read</option>
+                <option value="reading">Reading</option>
+                <option value="read">Read</option>
+              </select>
+              <button>Add</button>
+          </form>
+    {{/if}}
+
+</div>
+
   </div>
 
 
 </div>
  
-{{!-- <div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="..." class="card-img" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
-</div> --}}
-
-  
-
 
 <div class="single-view">
 
-  {{#if user}}
-<form method="POST">
-<label for="bookshelf">Add to your bookshelf</label>
-<select name="bookshelf" id="bookshelf">
-    <option value="toRead">To Read</option>
-    <option value="reading">Reading</option>
-    <option value="read">Read</option>
-  </select>
-  <button>Add</button>
-</form>
 
-{{/if}}
+<footer class="profile-footer">
 
-
-
-{{!-- <form method="POST">
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Add to bookshelf
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button" value="toread">To Read</button>
-    <button class="dropdown-item" type="button" value="reading">Reading</button>
-    <button class="dropdown-item" type="button" value="read">Read</button>
-  </div>
-</div>
-</form> --}}
-
-
-
-
-<br>
-<h4>Users' Reviews</h4>
-<div class="reviews-container row">
-  <div class="users-reviews-container col-md-7">
+<h2>Users' Reviews</h2>
 
 {{#each reviews}}
 {{>review}}
 {{/each}}
-</div>
-<div class="form-reviews-container  col-md-7">
+
+
 
 {{#if user}}
+
+<h4>Leave a review for this book</h4>
   {{#with data}}
   {{>reviewform}}
   {{/with}}
 {{else}}
 <p><a href="/authentication/sign-in">Sign In</a> or <a href="/authentication/sign-up">Create an account </a> to review this book.</p>
 {{/if}}  
-</div>
-</div>
-</div>
 
+
+</footer>
+
+</div>
 </div>

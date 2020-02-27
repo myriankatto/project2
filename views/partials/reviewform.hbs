@@ -1,3 +1,6 @@
+
+<div class="create-review">
+
 <form action="/book/{{ id }}/review" method="POST">
   <label for="input-rate">Rate</label>
   <select name="rate" id="input-rate">
@@ -7,9 +10,14 @@
     <option value="2">2</option>
     <option value="1">1</option>
   </select>
-  
-  <label for="input-content">Review</label>
-  <textarea name="content" id="input-content" placeholder="What do you think about this book?"></textarea>
 
+  <br>
+
+  
+  <label for="input-content">Review</label> <br>
+  <textarea name="content" id="input-content" placeholder="What do you think about this book?"></textarea>
+<br>
   <button>Submit</button>
 </form>
+
+</div>

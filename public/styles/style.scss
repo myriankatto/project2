@@ -136,14 +136,12 @@ button {
 }
 
 .container-single {
-  border-radius: 20px;
   margin: 0 auto;
-  padding: 100px 10px;
+  padding: 100px 10px 0 0;
   width: 80%;
   .container-single-book {
-    background-color: inhert;
-    border: white 2px solid;
-    border-radius: 20px;
+    background-color: $blue;
+    border-radius: 10px;
     color: $darkblue;
     margin: 40px auto;
 
@@ -186,29 +184,34 @@ button {
       }
     }
   }
+  .add-bookshelf {
+    width: 100%;
+    margin: 20px 30px;
+    display: flex;
+    justify-content: flex-end;
+
+    form {
+      label {
+        color: white;
+        font-size: 0.7em;
+        text-align: center;
+      }
+      button {
+        padding: 0 5px;
+        font-size: 0.8em;
+        margin: 0 10px;
+        border: white solid 1px;
+        border-radius: 5px;
+        color: white;
+      }
+      select {
+        background-color: white;
+        color: $blue;
+      }
+    }
+    // border: white solid 1px;
+  }
 }
-
-// #review {
-//   background-color: red;
-//   width: 1060px;
-//   .img {
-//     width: 30px;
-//     border-radius: 50px;
-//   }
-// }
-// h1,
-// h2,
-// h3 {
-//   margin: 0;
-//   line-height: inherit;
-//   &:not(:last-child) {
-//     margin-bottom: 1rem;
-//   }
-// }
-
-// img {
-//   width: 100px;
-// }
 
 .form-container {
   display: flex;
@@ -383,64 +386,17 @@ textarea {
   }
 }
 
-// .profile-footer {
-//   width: 1000px;
-//   margin: 0 auto;
-//   h2 {
-//     padding: 30px;
-//     font-size: 1.3em;
-//     text-align: center;
-//   }
-//   .review-profile-container {
-//     display: flex;
-//     flex-direction: column;
-//     border: lightgrey solid 1px;
-//     border-radius: 8px;
-//     padding: 30px;
-//     .review-profile-top {
-//       display: flex;
-//       .review-profile-top-image {
-//         image {
-//           margin-right: 1em;
-//           width: 20px;
-//         }
-//       }
-//       .review-profile-top-info {
-//         color: white;
-//         line-height: 1.5em;
-//       }
-//     }
-//   }
-
-//   .review-profile-bottom {
-//     color: white;
-//     line-height: 1.5em;
-//     margin-top: 1em;
-//     &-rate {
-//       display: flex;
-//       justify-content: space-between;
-//     }
-//   }
-//   button {
-//     border: 1px white solid;
-//     border-radius: 5px;
-//     color: white;
-//     padding: 0 10px;
-//     margin: 30px auto;
-//     &:hover {
-//       background-color: $whitefade;
-//       color: white;
-//       text-decoration: none;
-//     }
-//   }
-// }
-
 .profile-footer {
-  width: 1000px;
+  width: 800px;
   margin: 0 auto;
   h2 {
     padding: 30px;
     font-size: 1.3em;
+    text-align: center;
+  }
+  h4 {
+    padding: 30px;
+    font-size: 1em;
     text-align: center;
   }
 }
@@ -449,7 +405,7 @@ textarea {
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .review-profile-container {
@@ -483,6 +439,7 @@ textarea {
       font-size: 0.9em;
       line-height: 1.5em;
       font-weight: 300;
+      text-align: left;
     }
   }
   .review-profile-btn {
@@ -674,5 +631,49 @@ textarea {
   }
   h1 {
     font-size: 1.5em;
+  }
+}
+
+.form-reviews-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.create-review {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 30px;
+  form {
+    margin: 0 auto;
+  }
+  button {
+    border: 1px white solid;
+    border-radius: 10px;
+    color: white;
+    width: 100px;
+    margin: 20px auto;
+    &:hover {
+      background-color: $whitefade;
+      color: white;
+      text-decoration: none;
+    }
+  }
+  input {
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 0 30px;
+  }
+  label {
+    padding-top: 10px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  select {
+    background-color: white;
+    color: $blue;
+  }
+  textarea {
+    width: 100%;
   }
 }

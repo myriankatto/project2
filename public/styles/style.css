@@ -106,14 +106,12 @@ button {
       text-decoration: none; }
 
 .container-single {
-  border-radius: 20px;
   margin: 0 auto;
-  padding: 100px 10px;
+  padding: 100px 10px 0 0;
   width: 80%; }
   .container-single .container-single-book {
-    background-color: inhert;
-    border: white 2px solid;
-    border-radius: 20px;
+    background-color: #0e121a;
+    border-radius: 10px;
     color: #232b3b;
     margin: 40px auto; }
     .container-single .container-single-book .col-md-9 {
@@ -146,6 +144,25 @@ button {
         background-color: #ffffff34;
         color: white;
         text-decoration: none; }
+  .container-single .add-bookshelf {
+    width: 100%;
+    margin: 20px 30px;
+    display: flex;
+    justify-content: flex-end; }
+    .container-single .add-bookshelf form label {
+      color: white;
+      font-size: 0.7em;
+      text-align: center; }
+    .container-single .add-bookshelf form button {
+      padding: 0 5px;
+      font-size: 0.8em;
+      margin: 0 10px;
+      border: white solid 1px;
+      border-radius: 5px;
+      color: white; }
+    .container-single .add-bookshelf form select {
+      background-color: white;
+      color: #0e121a; }
 
 .form-container {
   display: flex;
@@ -281,18 +298,22 @@ textarea {
     font-size: 1em; }
 
 .profile-footer {
-  width: 1000px;
+  width: 800px;
   margin: 0 auto; }
   .profile-footer h2 {
     padding: 30px;
     font-size: 1.3em;
+    text-align: center; }
+  .profile-footer h4 {
+    padding: 30px;
+    font-size: 1em;
     text-align: center; }
 
 .reviews-container {
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin: 0 auto; }
+  margin: 20px auto; }
 
 .review-profile-container {
   display: flex;
@@ -316,7 +337,8 @@ textarea {
     .review-profile-container .review-profile-bottom p {
       font-size: 0.9em;
       line-height: 1.5em;
-      font-weight: 300; }
+      font-weight: 300;
+      text-align: left; }
   .review-profile-container .review-profile-btn {
     display: flex;
     justify-content: flex-end; }
@@ -468,5 +490,40 @@ textarea {
     color: #b4b4b4; }
   .edit-container h1 {
     font-size: 1.5em; }
+
+.form-reviews-container {
+  width: 80%;
+  margin: 0 auto; }
+
+.create-review {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 30px; }
+  .create-review form {
+    margin: 0 auto; }
+  .create-review button {
+    border: 1px white solid;
+    border-radius: 10px;
+    color: white;
+    width: 100px;
+    margin: 20px auto; }
+    .create-review button:hover {
+      background-color: #ffffff34;
+      color: white;
+      text-decoration: none; }
+  .create-review input {
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 0 30px; }
+  .create-review label {
+    padding-top: 10px;
+    text-align: center;
+    margin: 0 auto; }
+  .create-review select {
+    background-color: white;
+    color: #0e121a; }
+  .create-review textarea {
+    width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

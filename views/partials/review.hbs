@@ -1,17 +1,27 @@
-<div class="review">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4">
-        <img src="{{creator.picture}}"/> 
-          <p class="card-title"><a href="/user/{{creator._id}}/profile">{{ creator.username }}</a></p>
-      </div>
-      <div class="col-lg-8">
-        <div class="card-body">
-          <p class="card-text">rate: {{ rate }}</p>
-          <p class="card-text">{{ content }}</p>
-          <h6 class="card-text">{{ date creationDate 'DD/MM/YY'}}</h6> 
+<div class="review-profile-container">
+
+  <div class="review-profile-top">
+
+        <div class="review-profile-top-image">
+           <img src="{{creator.picture}}"/> 
         </div>
-      </div>
+
+        <div class="review-profile-top-info">
+          <p><a href="/user/{{creator._id}}/profile">{{ creator.username }}</a></p>
+          <small>rate: {{ rate }}</small> <br>
+          <small>{{ date creationDate 'DD/MM/YY'}}</small> 
+        </div>
+
+  </div>
+
+
+    <div class="review-profile-bottom">
+        <div class="review-profile-bottom-content">
+          <p class="card-text">{{ content }}</p>
+        </div>
+    </div>
+
+
     </div>
 </div>
 </div>
