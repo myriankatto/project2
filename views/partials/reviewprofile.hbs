@@ -19,6 +19,15 @@
   </div>
   <div class="review-profile-bottom-content">
     <p>{{ content }}</p>
+    {{#if sameUser}}
+      <form action="/book/{{ book.googleID }}/review/edit" method="POST">
+        <button class="review-edit-btn">Edit Review</button>
+      </form>
+      <form action="/book/{{ book.googleID }}/review/delete" method="POST">
+        <button class="review-delete-btn">Delete Review</button>
+      </form>
+    {{/if}}
+
   </div>
 </div>
 </div>

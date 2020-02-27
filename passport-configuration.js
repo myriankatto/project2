@@ -2,10 +2,9 @@
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-
+const FacebookStrategy = require('passport-facebook').Strategy;
 const User = require('./models/user');
 const bcryptjs = require('bcryptjs');
-
 const nodemailer = require('nodemailer');
 
 passport.serializeUser((user, callback) => {
@@ -89,4 +88,34 @@ passport.use(
         callback(error);
       });
   })
+);
+
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_APP_ID,
+      clientSecret: process.env.FACEBOOK_APP_SECRET,
+      callbackURL: 'http://localhost:3000/authentication/facebook/callback'
+    },
+    (accessToken, refreshToken, profile, done) => {
+      console.log('profile', profile);
+      const data = {
+        name: profile.displayName,
+        facebookId: profile.id,
+        facebookToken: accessToken
+      };
+      User.findOne({ facebookId: data.facebookId })
+        .then(userExists => {
+          if (userExists) {
+            return Promise.resolve(userExists);
+          } else {
+            return User.create(data);
+          }
+        })
+        .then(newUser => {
+          done(null, newUser);
+        })
+        .catch(error => done(error));
+    }
+  )
 );

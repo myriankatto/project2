@@ -8,6 +8,20 @@ const User = require('./../models/user');
 const Review = require('./../models/review');
 const alert = require('alert-node');
 
+router.post('/:bookId/review/delete', routeGuard(true), (req, res, next) => {
+  const { bookId } = req.params;
+  const userId = req.user._id;
+
+  Review.findOneAndRemove({ 'book.googleID': bookId })
+    .then(() => {
+      console.log('review deleted');
+      res.redirect(`/user/${userId}/profile`);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
 router.post('/:bookId/review', routeGuard(true), (req, res, next) => {
   const { bookId } = req.params;
   const userId = req.user._id;
@@ -92,38 +106,41 @@ router.post('/:bookId', (req, res, next) => {
   axios
     .get(`https://www.googleapis.com/books/v1/volumes/${bookId}`)
     .then(bookInfo => {
-      // console.log(bookInfo);
-      if (bookInfo.data.volumeInfo.imageLinks) {
-        bookData = {
-          googleID: bookInfo.data.id,
-          title: bookInfo.data.volumeInfo.title,
-          author: bookInfo.data.volumeInfo.authors,
-          imageUrl: bookInfo.data.volumeInfo.imageLinks.thumbnail
-        };
-      } else {
-        bookData = {
-          googleID: bookInfo.data.id,
-          title: bookInfo.data.volumeInfo.title,
-          author: bookInfo.data.volumeInfo.authors,
-          imageUrl:
-            'https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg'
-        };
-      }
+      let image;
+      const defaultImage =
+        'https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg';
+      const apiImage = bookInfo.data.volumeInfo.imageLinks;
+      apiImage ? (image = apiImage.thumbnail) : (image = defaultImage);
+
+      bookData = {
+        googleID: bookInfo.data.id,
+        title: bookInfo.data.volumeInfo.title,
+        author: bookInfo.data.volumeInfo.authors,
+        imageUrl: image
+      };
       return User.findById(userId);
     })
     .then(user => {
       userData = user;
       switch (bookshelf) {
         case 'read':
-          if (!userData.read.includes(bookData)) {
+          // eslint-disable-next-line no-case-declarations
+          let bookExists = false;
+          for (let i = 0; i < userData.read.length; i++) {
+            if (userData.read[i].googleID === bookData.googleID) {
+              bookExists = true;
+            }
+          }
+          if (!bookExists) {
             userData.read = [...userData.read, bookData];
             return User.findByIdAndUpdate(userId, {
               read: userData.read
             });
           } else {
+            //console.log('book already exists');
             alert('This book is already in the shelf');
-            break;
           }
+          break;
         case 'reading':
           if (!userData.reading.includes(bookData)) {
             userData.reading = [...userData.reading, bookData];

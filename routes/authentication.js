@@ -1,11 +1,8 @@
 'use strict';
 
 const { Router } = require('express');
-
 const passport = require('passport');
-
 const router = new Router();
-
 const routeGuard = require('./../middleware/route-guard');
 
 router.get('/sign-up', routeGuard(false), (req, res, next) => {
@@ -17,6 +14,16 @@ router.post(
   routeGuard(false),
   passport.authenticate('local-sign-up', {
     successRedirect: `/`,
+    failureRedirect: '/authentication/sign-up'
+  })
+);
+
+router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+
+router.get(
+  '/facebook/callback',
+  passport.authenticate('facebook', {
+    successRedirect: '/',
     failureRedirect: '/authentication/sign-up'
   })
 );
