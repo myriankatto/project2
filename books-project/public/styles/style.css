@@ -15,11 +15,13 @@ a {
   text-decoration: none; }
 
 nav {
-  display: flex; }
+  display: flex;
+  align-items: center; }
   nav a,
   nav button {
-    padding: 1em 0;
-    border: 0; }
+    border: 0;
+    padding: 0;
+    margin: 0; }
     nav a:not(:last-child),
     nav button:not(:last-child) {
       margin-right: 1em; }
@@ -73,5 +75,24 @@ textarea {
   margin: 0;
   padding: 0;
   border: none; }
+
+.profile-footer {
+  width: 70%; }
+  .profile-footer .review-profile-container {
+    border: lightgrey solid 1px;
+    padding: 1em; }
+
+.review-profile-top {
+  display: flex;
+  line-height: 1.5em; }
+  .review-profile-top-image {
+    margin-right: 1em; }
+
+.review-profile-bottom {
+  line-height: 1.5em;
+  margin-top: 1em; }
+  .review-profile-bottom-rate {
+    display: flex;
+    justify-content: space-between; }
 
 /*# sourceMappingURL=style.css.map */

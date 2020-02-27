@@ -7,6 +7,7 @@ $blue: #2374f7;
   &:before,
   &:after {
     box-sizing: border-box;
+    // outline: red solid 1px;
   }
 }
 
@@ -28,10 +29,12 @@ a {
 
 nav {
   display: flex;
+  align-items: center;
   a,
   button {
-    padding: 1em 0;
     border: 0;
+    padding: 0;
+    margin: 0;
     &:not(:last-child) {
       margin-right: 1em;
     }
@@ -40,6 +43,13 @@ nav {
     }
   }
 }
+
+// .navbar {
+//   img {
+//     border-radius: 50%;
+//     border: $blue solid 2px;
+//   }
+// }
 
 h1,
 h2,
@@ -96,8 +106,30 @@ textarea {
   border: none;
 }
 
+.profile-footer {
+  width: 70%;
+  .review-profile-container {
+    border: lightgrey solid 1px;
+    padding: 1em;
+  }
+}
 
+.review-profile-top {
+  display: flex;
+  line-height: 1.5em;
+  &-image {
+    margin-right: 1em;
+  }
+}
 
+.review-profile-bottom {
+  line-height: 1.5em;
+  margin-top: 1em;
+  &-rate {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
 // .upload-btn-wrapper {
 //   position: relative;
@@ -162,12 +194,5 @@ textarea {
 //     font-size: 1em;
 //     font-weight: 700;
 //     list-style: none;
-//   }
-// }
-
-// .navbar {
-//   img {
-//     border-radius: 50%;
-//     border: $blue solid 2px;
 //   }
 // }

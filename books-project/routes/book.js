@@ -73,7 +73,7 @@ router.get('/:bookId', (req, res, next) => {
     })
 
     .then(reviews => {
-      console.log(reviews);
+      // console.log(reviews);
       res.render('book/single', { data, reviews });
     })
 
