@@ -396,8 +396,8 @@ textarea {
   }
   h4 {
     padding: 30px;
-    font-size: 1em;
-    text-align: center;
+    font-size: 1em !important;
+    text-align: center !important;
   }
 }
 
@@ -640,40 +640,40 @@ textarea {
 }
 
 .create-review {
-  width: 70%;
   margin: 0 auto;
   padding-top: 30px;
-  form {
-    margin: 0 auto;
-  }
-  button {
-    border: 1px white solid;
-    border-radius: 10px;
-    color: white;
-    width: 100px;
-    margin: 20px auto;
-    &:hover {
-      background-color: $whitefade;
-      color: white;
-      text-decoration: none;
+  .form-review {
+    form {
     }
-  }
-  input {
-    width: 400px;
-    margin: 0 auto;
-    border-radius: 10px;
-    padding: 0 30px;
-  }
-  label {
-    padding-top: 10px;
-    text-align: center;
-    margin: 0 auto;
-  }
-  select {
-    background-color: white;
-    color: $blue;
-  }
-  textarea {
-    width: 100%;
+    button {
+      border: 1px white solid;
+      border-radius: 10px;
+      color: white;
+      width: 100px;
+      margin: 20px auto;
+      &:hover {
+        background-color: $whitefade;
+        color: white;
+        text-decoration: none;
+      }
+    }
+    input {
+      width: 400px;
+      margin: 0 auto;
+      border-radius: 10px;
+      padding: 0 30px;
+    }
+    label {
+      padding-top: 10px;
+      text-align: center;
+      margin: 0 auto;
+    }
+    select {
+      background-color: white;
+      color: $blue;
+    }
+    textarea {
+      width: 80%;
+    }
   }
 }

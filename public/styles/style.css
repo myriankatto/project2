@@ -306,8 +306,8 @@ textarea {
     text-align: center; }
   .profile-footer h4 {
     padding: 30px;
-    font-size: 1em;
-    text-align: center; }
+    font-size: 1em !important;
+    text-align: center !important; }
 
 .reviews-container {
   display: flex;
@@ -496,34 +496,31 @@ textarea {
   margin: 0 auto; }
 
 .create-review {
-  width: 70%;
   margin: 0 auto;
   padding-top: 30px; }
-  .create-review form {
-    margin: 0 auto; }
-  .create-review button {
+  .create-review .form-review button {
     border: 1px white solid;
     border-radius: 10px;
     color: white;
     width: 100px;
     margin: 20px auto; }
-    .create-review button:hover {
+    .create-review .form-review button:hover {
       background-color: #ffffff34;
       color: white;
       text-decoration: none; }
-  .create-review input {
+  .create-review .form-review input {
     width: 400px;
     margin: 0 auto;
     border-radius: 10px;
     padding: 0 30px; }
-  .create-review label {
+  .create-review .form-review label {
     padding-top: 10px;
     text-align: center;
     margin: 0 auto; }
-  .create-review select {
+  .create-review .form-review select {
     background-color: white;
     color: #0e121a; }
-  .create-review textarea {
-    width: 100%; }
+  .create-review .form-review textarea {
+    width: 80%; }
 
 /*# sourceMappingURL=style.css.map */
