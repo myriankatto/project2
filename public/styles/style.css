@@ -584,4 +584,22 @@ textarea {
           color: #232b3b;
           text-decoration: none; }
 
+.error-page {
+  padding-top: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-items: center; }
+  .error-page .msg-error {
+    margin: 0 auto;
+    text-align: center; }
+  .error-page .img-error {
+    margin: 0 auto;
+    padding-top: 100px; }
+    .error-page .img-error h3 {
+      font-weight: 200;
+      font-size: 1.2em;
+      padding-top: 40px;
+      text-align: center; }
+
 /*# sourceMappingURL=style.css.map */

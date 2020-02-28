@@ -707,45 +707,6 @@ textarea {
   margin: 0 auto;
 }
 
-// .create-review {
-//   margin: 0 auto;
-//   padding-top: 30px;
-//   .form-review {
-//     form {
-//     }
-//     button {
-//       border: 1px white solid;
-//       border-radius: 10px;
-//       color: white;
-//       width: 100px;
-//       margin: 20px auto;
-//       &:hover {
-//         background-color: $whitefade;
-//         color: $darkblue;
-//         text-decoration: none;
-//       }
-//     }
-//     input {
-//       width: 400px;
-//       margin: 0 auto;
-//       border-radius: 10px;
-//       padding: 0 30px;
-//     }
-//     label {
-//       padding-top: 10px;
-//       text-align: center;
-//       margin: 0 auto;
-//     }
-//     select {
-//       background-color: white;
-//       color: $blue;
-//     }
-//     textarea {
-//       width: 80%;
-//     }
-//   }
-// }
-
 .create-review {
   display: flex;
   flex-direction: column;
@@ -784,6 +745,28 @@ textarea {
           text-decoration: none;
         }
       }
+    }
+  }
+}
+
+.error-page {
+  padding-top: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  .msg-error {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .img-error {
+    margin: 0 auto;
+    padding-top: 100px;
+    h3 {
+      font-weight: 200;
+      font-size: 1.2em;
+      padding-top: 40px;
+      text-align: center;
     }
   }
 }
