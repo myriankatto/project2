@@ -116,6 +116,7 @@ router.post('/:bookId/review', routeGuard(true), (req, res, next) => {
 router.get('/:bookId', (req, res, next) => {
   const { bookId } = req.params;
   let data;
+  let newDescription;
 
   const requestPromise = axios.get(`https://www.googleapis.com/books/v1/volumes/${bookId}`);
 
@@ -123,14 +124,18 @@ router.get('/:bookId', (req, res, next) => {
     .then(output => {
       data = output.data;
 
+      newDescription = data.volumeInfo.description.replace(
+        /(<b>)|(<\/b>)|(<i>)|(<\/i>)|(<br>)|(<p>)|(<\/p>)|(<u>)|(<\/u>)/g,
+        ''
+      );
+
       return Review.find({
         'book.googleID': bookId
       }).populate(' creator ');
     })
 
     .then(reviews => {
-      // console.log(reviews);
-      res.render('book/single', { data, reviews });
+      res.render('book/single', { data, reviews, newDescription });
     })
 
     .catch(error => {
