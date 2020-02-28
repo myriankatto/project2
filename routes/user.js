@@ -114,12 +114,16 @@ router.get('/:userId/edit', routeGuard(true), (req, res, next) => {
   const { userId } = req.params;
 
   const userHasInfo = {
+    name: false,
     about: false,
     location: false
   };
 
   User.findById(userId)
     .then(user => {
+      if (user.name) {
+        userHasInfo.name = true;
+      }
       if (user.location) {
         userHasInfo.location = true;
       }
@@ -135,9 +139,9 @@ router.get('/:userId/edit', routeGuard(true), (req, res, next) => {
 
 router.post('/:userId/edit', routeGuard(true), (req, res, next) => {
   const { userId } = req.params;
-  const { about, location } = req.body;
+  const { name, about, location } = req.body;
 
-  User.findByIdAndUpdate(userId, { about, location })
+  User.findByIdAndUpdate(userId, { name, about, location })
 
     .then(() => {
       res.redirect(`/user/${userId}/account`);

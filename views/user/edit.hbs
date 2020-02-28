@@ -2,12 +2,19 @@
   <h1>Edit your profile</h1>
 
 <form class="form-container" method="POST"  >
+{{#if userHasInfo.name}}
+  <label for="input-name">Your name</label>
+  <input type="text" id="input-name" name="name" value="{{user.name}}" />
+{{else}}
+  <label for="input-about">Your name</label>
+  <input type="text" id="input-name" name="name" placeholder="Your name"/>
+{{/if}}
 {{#if userHasInfo.about}}
   <label for="input-about">About Me</label>
   <textarea id="input-about" name="about">{{user.about}}</textarea>
 {{else}}
   <label for="input-about">About Me</label>
-  <textarea id="input-about" name="about">Write something about yourself...</textarea>
+  <textarea id="input-about" name="about">Write something about yourself</textarea>
 {{/if}}
 {{#if userHasInfo.location}}
   <label for="input-location">Location</label>
