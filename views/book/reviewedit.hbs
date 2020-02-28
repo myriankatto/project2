@@ -1,19 +1,38 @@
-<h3>Edit Review for {{ book.title }}</h3>
+<h3>Edit Review for {{ review.book.title }}</h3>
 
-<form action="/book/{{ book.googleID }}/review/{{ _id }}/edit" method="POST">
+<form action="/book/{{ review.book.googleID }}/review/{{ review._id }}/edit" method="POST">
 
   <label for="input-rate">Rate</label>
   <select name="rate" id="input-rate">
-    <option value="none" selected disabled hidden> </option>
+    {{#if rates.rate5}}
+    <option value="5" selected>5</option>
+    {{else}}
     <option value="5">5</option>
+    {{/if}}
+    {{#if rates.rate4}}
+    <option value="4" selected>4</option>
+    {{else}}
     <option value="4">4</option>
+    {{/if}}
+    {{#if rates.rate3}}
+    <option value="3" selected>3</option>
+    {{else}}
     <option value="3">3</option>
+    {{/if}}
+    {{#if rates.rate2}}
+    <option value="2" selected>2</option>
+    {{else}}
     <option value="2">2</option>
+    {{/if}}
+    {{#if rates.rate1}}
+    <option value="1" selected>1</option>
+    {{else}}
     <option value="1">1</option>
+    {{/if}}
   </select>
   
   <label for="input-content">Review</label>
-  <textarea name="content" id="input-content" placeholder="What do you think about this book?">{{content}}</textarea>
+  <textarea name="content" id="input-content" placeholder="What do you think about this book?">{{review.content}}</textarea>
 
   <button>Submit changes</button>
 </form>

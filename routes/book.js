@@ -10,10 +10,29 @@ const alert = require('alert-node');
 
 router.get('/:bookId/review/:reviewId/edit', routeGuard(true), (req, res, next) => {
   const { reviewId } = req.params;
+  const rates = {
+    rate1: false,
+    rate2: false,
+    rate3: false,
+    rate4: false,
+    rate5: false
+  };
 
   Review.findById(reviewId)
     .then(review => {
-      res.render('book/reviewedit', review);
+      if (review.rate == 1) {
+        rates.rate1 = true;
+      } else if (review.rate == 2) {
+        rates.rate2 = true;
+      } else if (review.rate == 3) {
+        rates.rate3 = true;
+      } else if (review.rate == 4) {
+        rates.rate4 = true;
+      } else if (review.rate == 5) {
+        rates.rate5 = true;
+      }
+
+      res.render('book/reviewedit', { review, rates });
     })
     .catch(error => {
       console.log(error);
