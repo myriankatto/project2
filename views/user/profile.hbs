@@ -8,12 +8,17 @@
 </figure>
 </div>
 <div class="col-md-8">
-  <h1>{{document.username}}'s Profile</h1>
+  <h1>{{document.name}}'s Profile</h1>
 
-
+{{#if userHas.about}}
 <p><strong>About</strong>: {{document.about}}</p>
 <br>
+{{/if}}
+{{#if userHas.location}}
 <span><strong>Location</strong>: {{document.location}}</span>
+<br>
+{{/if}}
+<span><strong>Joined in</strong>: {{date document.creationDate "MM/YYYY"}}</span>
 <br>
 </div>
 </div>
@@ -28,13 +33,16 @@
 </div>
 
 <footer class="profile-footer">
-  <h2>{{document.username}}'s Reviews</h2>
+  <h2>{{document.name}}'s Reviews</h2>
     <div class="reviews-container">
-{{#each reviews}}
-
-{{> reviewprofile}}
-
-{{/each}}
-</div>
+      {{#if userHas.booksReviews}}
+        {{#each reviews}}
+          {{> reviewprofile}}
+        {{/each}}
+      {{else}}
+      <p style="font-size: 1.2em; font-weight: lighter;">Don't be shy, let's add your first review!<br>
+      <a href="/">Find a book here.</a></p>
+      {{/if}}
+      </div>
 </footer>
 </div>

@@ -24,19 +24,48 @@ router.get('/:userId/account', routeGuard(true), (req, res, next) => {
 router.get('/:userId/profile', (req, res, next) => {
   const { userId } = req.params;
   const loggedUser = req.user._id;
+  let document;
   let sameUser;
   userId.toString() === loggedUser.toString() ? (sameUser = true) : (sameUser = false);
-  let document;
+
+  const userHas = {
+    about: false,
+    location: false,
+    booksInRead: false,
+    booksInReading: false,
+    booksInToRead: false,
+    booksReviews: false
+  };
+
   User.findById(userId)
     .then(result => {
       document = result;
+      if (document.about && document.about.length > 0) {
+        userHas.about = true;
+      }
+      if (document.location && document.about.length > 0) {
+        userHas.location = true;
+      }
+      if (document.read.length > 0) {
+        userHas.booksInRead = true;
+      }
+      if (document.reading.length > 0) {
+        userHas.booksInReading = true;
+      }
+      if (document.toRead.length > 0) {
+        userHas.booksInToRead = true;
+      }
       return Review.find({ creator: userId });
     })
     .then(reviews => {
+      console.log(reviews);
+      if (reviews.length > 0) {
+        userHas.booksReviews = true;
+      }
       reviews.map(review => {
         return (review.sameUser = sameUser);
       });
-      res.render(`user/profile`, { document, reviews, sameUser });
+      res.render(`user/profile`, { document, reviews, sameUser, userHas });
     })
     .catch(error => {
       next(error);

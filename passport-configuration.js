@@ -35,12 +35,13 @@ const transporter = nodemailer.createTransport({
 passport.use(
   'local-sign-up',
   new LocalStrategy({ passReqToCallback: true }, (req, username, password, callback) => {
-    const email = req.body.email;
+    const { name, email } = req.body;
     let user;
     bcryptjs
       .hash(password, 10)
       .then(hash => {
         return User.create({
+          name,
           username,
           email,
           passwordHash: hash
@@ -52,7 +53,7 @@ passport.use(
         return transporter.sendMail({
           from: `Books and Tea`,
           to: user.email,
-          subject: `Welcome ${user.username} 📚`,
+          subject: `Welcome ${user.name} 📚`,
           html: `Welcome to Books and Tea.📚<br>
             <a href="/">Go Your Profile</a>`
         });
