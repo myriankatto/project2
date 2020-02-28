@@ -47,7 +47,7 @@ button {
   background-image: url(../images/bg-img.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 250px 0;
+  padding: 200px 0;
   h1 {
     text-align: center;
     margin-bottom: 40px;
@@ -59,9 +59,8 @@ button {
     width: 50%;
     padding: 1em;
     border: 1px solid white;
-    border-radius: 0;
     margin-bottom: 1em;
-    border-radius: 8px;
+    border-radius: 5px;
     font: inherit;
     color: $darkblue;
     background-color: white;
@@ -125,7 +124,7 @@ button {
     border: white 1px solid;
     font-size: 14px;
     padding: 3px 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-left: 10px;
     &:hover {
       background-color: $whitefade;
@@ -141,7 +140,7 @@ button {
   width: 80%;
   .container-single-book {
     background-color: $blue;
-    border-radius: 10px;
+    border-radius: 5px;
     color: $darkblue;
     margin: 40px auto;
 
@@ -163,7 +162,7 @@ button {
       height: 40px;
       cursor: pointer;
       background-color: white;
-      border-radius: 8px;
+      border-radius: 5px;
       margin: 0 auto;
     }
     h4,
@@ -172,7 +171,7 @@ button {
     }
     button {
       border: 1px white solid;
-      border-radius: 2px;
+      border-radius: 5px;
       color: white;
       width: 100px;
       margin: 20px auto;
@@ -354,7 +353,7 @@ textarea {
   justify-content: center;
   button {
     border: 1px white solid;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
     width: 100px;
     margin: 20px auto;
@@ -367,7 +366,7 @@ textarea {
   input {
     width: 400px;
     margin: 0 auto;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0 30px;
   }
   label {
@@ -395,7 +394,7 @@ textarea {
 
 .review {
   background-color: $blue;
-  border-radius: 10px;
+  border-radius: 5px;
   color: white;
   margin: 0 auto;
   width: 70%;
@@ -439,6 +438,7 @@ textarea {
   display: flex;
   flex-direction: column;
   border: white 1px solid;
+  border-radius: 5px;
   margin: 10px 0;
   padding: 20px 30px;
   .review-profile-top {
@@ -493,7 +493,7 @@ textarea {
   padding-top: 100px;
   .profile-card {
     background-color: $blue;
-    border-radius: 8px;
+    border-radius: 5px;
     // border: white 2px solid;
     color: white;
     padding: 20px 20px 20px 30px;
@@ -505,6 +505,8 @@ textarea {
     }
     img {
       width: 200px;
+      height: 200px;
+
       margin-top: 10px;
       margin-left: 20px;
       border-radius: 50%;
@@ -527,7 +529,7 @@ textarea {
   padding-top: 100px;
   .account-card {
     background-color: $blue;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
     padding: 40px;
     display: flex;
@@ -540,6 +542,7 @@ textarea {
         img {
           border-radius: 50%;
           width: 200px;
+          height: 200px;
           margin: 20px;
         }
         .inputfile {
@@ -629,7 +632,7 @@ textarea {
 }
 
 .container-shelf {
-  border-radius: 20px;
+  border-radius: 5px;
   margin: 0 auto;
   padding: 100px 10px;
   width: 80%;
@@ -669,7 +672,7 @@ textarea {
   width: 70%;
   button {
     border: 1px white solid;
-    border-radius: 8px;
+    border-radius: 5px;
     color: white;
     width: 200px;
     margin: 30px auto;
@@ -681,7 +684,7 @@ textarea {
   }
   textarea,
   input {
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px 20px;
     color: rgb(180, 180, 180);
     max-height: auto;
@@ -702,41 +705,83 @@ textarea {
   margin: 0 auto;
 }
 
+// .create-review {
+//   margin: 0 auto;
+//   padding-top: 30px;
+//   .form-review {
+//     form {
+//     }
+//     button {
+//       border: 1px white solid;
+//       border-radius: 10px;
+//       color: white;
+//       width: 100px;
+//       margin: 20px auto;
+//       &:hover {
+//         background-color: $whitefade;
+//         color: $darkblue;
+//         text-decoration: none;
+//       }
+//     }
+//     input {
+//       width: 400px;
+//       margin: 0 auto;
+//       border-radius: 10px;
+//       padding: 0 30px;
+//     }
+//     label {
+//       padding-top: 10px;
+//       text-align: center;
+//       margin: 0 auto;
+//     }
+//     select {
+//       background-color: white;
+//       color: $blue;
+//     }
+//     textarea {
+//       width: 80%;
+//     }
+//   }
+// }
+
 .create-review {
-  margin: 0 auto;
-  padding-top: 30px;
-  .form-review {
-    form {
-    }
-    button {
-      border: 1px white solid;
-      border-radius: 10px;
-      color: white;
-      width: 100px;
-      margin: 20px auto;
-      &:hover {
-        background-color: $whitefade;
-        color: $darkblue;
-        text-decoration: none;
-      }
-    }
-    input {
-      width: 400px;
-      margin: 0 auto;
-      border-radius: 10px;
-      padding: 0 30px;
-    }
-    label {
-      padding-top: 10px;
-      text-align: center;
-      margin: 0 auto;
-    }
+  display: flex;
+  flex-direction: column;
+  form {
+    width: 60%;
+    margin: 0 auto;
     select {
       background-color: white;
       color: $blue;
     }
-    textarea {
-      width: 80%;
+    label {
+      color: white;
+      font-size: 1em;
+    }
+    .review-content {
+      textarea {
+        border: 1px solid white;
+        border-radius: 5px;
+        color: $darkblue;
+        background-color: white;
+        width: 100%;
+      }
+    }
+    .review-btn {
+      display: flex;
+      justify-items: flex-end;
+      button {
+        border: 1px white solid;
+        border-radius: 5px;
+        color: white;
+        width: 100px;
+        margin: 20px auto;
+        &:hover {
+          background-color: $whitefade;
+          color: $darkblue;
+          text-decoration: none;
+        }
+      }
     }
   }
 }

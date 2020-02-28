@@ -1,11 +1,17 @@
 
 <div class="create-review">
 
-<div class="form-review">
 <form action="/book/{{ id }}/review" method="POST">
-  <label for="input-rate">Rate</label>
+
+<div class="review-content">
+  
+  <label for="input-content">Review</label> <br>
+  <textarea name="content" id="input-content" placeholder="What do you think about this book?"></textarea>
+</div>
+<div class="review-rate">
+  <label for="input-rate">Rate: </label>
   <select name="rate" id="input-rate">
-    <option value="none" selected disabled hidden> </option>
+    <option value="none" selected disabled hidden>Select</option>
     <option value="5">5</option>
     <option value="4">4</option>
     <option value="3">3</option>
@@ -13,13 +19,11 @@
     <option value="1">1</option>
   </select>
 
-  <br>
-
-  
-  <label for="input-content">Review</label> <br>
-  <textarea name="content" id="input-content" placeholder="What do you think about this book?"></textarea>
-<br>
-  <button>Submit</button>
-</form>
 </div>
+
+<div class="review-btn">
+
+  <button>Submit</button>
+</div>
+</form>
 </div>
