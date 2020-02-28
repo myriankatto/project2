@@ -266,7 +266,10 @@ textarea {
 .authentication {
   width: 70%;
   margin: 0 auto;
-  padding-top: 100px; }
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
   .authentication button {
     border: 1px white solid;
     border-radius: 10px;
@@ -284,8 +287,21 @@ textarea {
     padding: 0 30px; }
   .authentication label {
     padding-top: 10px;
-    text-align: center;
-    margin: 0 auto; }
+    text-align: center; }
+  .authentication .fb-btn {
+    margin: 0 auto;
+    padding-top: 20px; }
+    .authentication .fb-btn img {
+      width: 200px; }
+  .authentication hr {
+    display: block;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+    border-color: rgba(196, 196, 196, 0.418);
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto; }
 
 .review {
   background-color: #0e121a;
