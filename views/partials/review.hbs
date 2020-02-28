@@ -1,5 +1,5 @@
 <div class="review-profile-container">
-<div class="reviews">
+
   <div class="review-profile-top">
 
         <div class="review-profile-top-image">
@@ -7,7 +7,7 @@
         </div>
 
         <div class="review-profile-top-info">
-          <h3><a href="/user/{{creator._id}}/profile">{{ creator.name }}</a></h3>
+          <a href="/user/{{creator._id}}/profile"><h3>{{ creator.name }}</h3></a>
           <strong>rate: {{ rate }}</strong>
           <br>
           <small>{{ date creationDate 'DD/MM/YY'}}</small> 
@@ -22,8 +22,4 @@
         </div>
     </div>
 
-
-    </div>
-</div>
-</div>
 </div>
