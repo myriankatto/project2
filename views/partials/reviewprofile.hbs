@@ -29,10 +29,10 @@
 
     <div class="review-profile-btn">
       {{#if sameUser}}
-        <form action="/book/{{ book.googleID }}/review/edit" method="POST">
+        <form action="/book/{{ book.googleID }}/review/{{ _id }}/edit" method="GET">
           <button class="review-edit-btn">Edit Review</button>
         </form>
-        <form action="/book/{{ book.googleID }}/review/delete" method="POST">
+        <form action="/book/{{ book.googleID }}/review/{{ _id }}/delete" method="POST">
           <button class="review-delete-btn">Delete Review</button>
         </form>
       {{/if}}

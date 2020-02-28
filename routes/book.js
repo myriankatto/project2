@@ -8,11 +8,37 @@ const User = require('./../models/user');
 const Review = require('./../models/review');
 const alert = require('alert-node');
 
-router.post('/:bookId/review/delete', routeGuard(true), (req, res, next) => {
-  const { bookId } = req.params;
+router.get('/:bookId/review/:reviewId/edit', routeGuard(true), (req, res, next) => {
+  const { reviewId } = req.params;
+
+  Review.findById(reviewId)
+    .then(review => {
+      res.render('book/reviewedit', review);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+router.post('/:bookId/review/:reviewId/edit', routeGuard(true), (req, res, next) => {
+  const { reviewId } = req.params;
+  const { rate, content } = req.body;
   const userId = req.user._id;
 
-  Review.findOneAndRemove({ 'book.googleID': bookId })
+  Review.findByIdAndUpdate(reviewId, { rate, content })
+    .then(() => {
+      res.redirect(`/user/${userId}/profile`);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
+router.post('/:bookId/review/:reviewId/delete', routeGuard(true), (req, res, next) => {
+  const { reviewId } = req.params;
+  const userId = req.user._id;
+
+  Review.findByIdAndRemove(reviewId)
     .then(() => {
       console.log('review deleted');
       res.redirect(`/user/${userId}/profile`);
