@@ -33,7 +33,6 @@ router.get('/:userId/profile', (req, res, next) => {
       return Review.find({ creator: userId });
     })
     .then(reviews => {
-      // console.log(reviews);
       reviews.map(review => {
         return (review.sameUser = sameUser);
       });
@@ -112,19 +111,35 @@ router.post('/:userId/read/:bookId/delete', routeGuard(true), (req, res, next) =
 });
 
 router.get('/:userId/edit', routeGuard(true), (req, res, next) => {
-  res.render('user/edit');
+  const { userId } = req.params;
+
+  const userHasInfo = {
+    about: false,
+    location: false
+  };
+
+  User.findById(userId)
+    .then(user => {
+      if (user.location) {
+        userHasInfo.location = true;
+      }
+      if (user.about) {
+        userHasInfo.about = true;
+      }
+      res.render('user/edit', { user, userHasInfo });
+    })
+    .catch(error => {
+      next(error);
+    });
 });
 
 router.post('/:userId/edit', routeGuard(true), (req, res, next) => {
   const { userId } = req.params;
   const { about, location } = req.body;
 
-  console.log(req.body);
-
   User.findByIdAndUpdate(userId, { about, location })
 
     .then(() => {
-      // console.log(about);
       res.redirect(`/user/${userId}/account`);
     })
 
@@ -168,9 +183,6 @@ const uploader = multer({ storage });
 router.post('/:userId/picture', routeGuard(true), uploader.single('picture'), (req, res, next) => {
   const { userId } = req.params;
   const { url } = req.file;
-
-  console.log(req.file);
-  console.log(userId);
 
   User.findByIdAndUpdate(userId, { picture: url })
 

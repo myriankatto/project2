@@ -1,18 +1,21 @@
 <div class="edit-container">
   <h1>Edit your profile</h1>
 
-{{!-- enctype="multipart/form-data" --}}
 <form class="form-container" method="POST"  >
-
+{{#if userHasInfo.about}}
+  <label for="input-about">About Me</label>
+  <textarea id="input-about" name="about">{{user.about}}</textarea>
+{{else}}
   <label for="input-about">About Me</label>
   <textarea id="input-about" name="about">Write something about yourself...</textarea>
-
+{{/if}}
+{{#if userHasInfo.location}}
+  <label for="input-location">Location</label>
+  <input type="text" id="input-location" name="location" placeholder="Your City and Country" value="{{user.location}}" /> 
+{{else}}
   <label for="input-location">Location</label>
   <input type="text" id="input-location" name="location" placeholder="Your City and Country" /> 
-{{!-- 
-  <label for="input-picture">Picture</label>
-  <input type="file" accept="image/*" name="picture" id="input-picture" />  --}}
-
+{{/if}}
   <button>Edit your account</button>
 </form>
 </div>
