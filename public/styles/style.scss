@@ -265,7 +265,7 @@ textarea {
   }
 }
 .card-body {
-  color: $darkblue;
+  color: white;
   li {
     list-style: none;
     font-size: 0.8em;
@@ -277,14 +277,16 @@ textarea {
     font-weight: 700;
   }
   h2 {
-    font-size: 0.8em;
+    font-size: 0.7em;
     line-height: 1.2em;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0 0 5px 0;
   }
   h3 {
-    line-height: 0.7em;
-    font-size: 0.7em;
+    line-height: 0.6em;
+    font-size: 0.6em;
+    font-weight: 200;
+    padding-top: 5px;
   }
   h4 {
     font-size: 0.9em;
@@ -312,6 +314,7 @@ textarea {
 .card {
   margin: 30px 0;
   height: 300px;
+  background-color: $blue;
   img {
     height: 200px;
   }
@@ -598,13 +601,9 @@ textarea {
   }
 }
 .container-search {
-  border-radius: 20px;
   margin: 0 auto;
-  padding: 40px 10px;
+  padding: 100px 10px;
   width: 80%;
-  a:hover {
-    background-color: rgba(0, 0, 0, 0.473);
-  }
 }
 
 .edit-container {

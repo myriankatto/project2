@@ -1,25 +1,30 @@
 <div class="container-search">
-<h4>Your results</h4>
+  <h4>Your results</h4>
   <div class="row">
-{{#each data}}
-    <div class="col-md">
-  <a href="/book/{{ id }}">
-      <div class="card" style="width: 10rem;">
-        {{#if volumeInfo.imageLinks.thumbnail}}
-          <img src="{{ volumeInfo.imageLinks.thumbnail }}" alt="{{ volumeInfo.title }}">
-          {{else}}
-            <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
-        {{/if}}
+      {{#each data}}
+      <div class="col-2">
+        <a href="/book/{{ id }}">
+          <div class="card" style="width: 9rem;">
+              {{#if volumeInfo.imageLinks.thumbnail}}
+                  <img src="{{ volumeInfo.imageLinks.thumbnail }}" class="card-img-top" alt="{{ volumeInfo.title }}">
+              {{else}}
+                  <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" class="card-img-top" alt="book without cover image">
+              {{/if}}
           <div class="card-body">
-          <h2 class="card-text">{{ volumeInfo.title }}</h2>
-          <h3> by {{ volumeInfo.authors.[0] }}</h3>
+            <h2 class="card-text">{{ volumeInfo.title }}</h2>
+            <h3> by {{ volumeInfo.authors.[0] }}</h3>
+         </a>
           </div>
           </div>
-    </a>
       </div>
 {{/each}}
     </div>
 
-{{> pagination}}
-
+  {{> pagination}}
 </div>
+
+
+
+
+
+

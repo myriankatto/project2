@@ -2,9 +2,9 @@
 <div class="container-shelf">
 <h2>{{user.username}}'s <strong>Read</strong> Bookshelf</h2>
 {{#with user}}
-{{#each (reverse this.read)}}
   <div class="row">
- <div class="col-md">
+{{#each (reverse this.read)}}
+ <div class="col-2">
    <a href="/book/{{ googleID }}">
      <form action="/user/{{../_id}}/read/{{ _id }}/delete" method="POST">
         <button><img class="remove-btn"src="/images/ic_remove.svg"></button>

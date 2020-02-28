@@ -1,21 +1,23 @@
 <div class="container-shelf">
 <h2>{{user.username}}'s <strong>Reading</strong> Bookshelf</h2>  <div class="row">
 {{#with user}}
-{{#each (reverse this.reading)}}
   <div class="row">
-  <div class="col-md">
+{{#each (reverse this.reading)}}
+  <div class="col-2">
        <a href="/book/{{ googleID }}">
-     <form action="/user/{{../_id}}/reading/{{ _id }}/delete" method="POST">
-        <button><img class="remove-btn"src="/images/ic_remove.svg"></button>
-      </form>
-      <div class="card" style="width: 9em;">
-      {{#if imageUrl}}
-        <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
-          {{else}}
-            <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
-      {{/if}}    <div class="card-body">
-    <p class="card-text">{{title}}</p>
-         </a>
+          <form action="/user/{{../_id}}/reading/{{ _id }}/delete" method="POST">
+            <button><img class="remove-btn"src="/images/ic_remove.svg"></button>
+          </form>
+        <div class="card" style="width: 9em;">
+            {{#if imageUrl}}
+              <img src="{{ imageUrl }}" class="card-img-top"alt="{{ title }}">
+            {{else}}
+              <img src="https://dl.acm.org/specs/products/acm/releasedAssets/images/cover-default--book.svg" alt="book without cover image">
+            {{/if}}    
+            
+            <div class="card-body">
+              <p class="card-text">{{title}}</p>
+          </a>
        </div>
       </div>
       </div>
@@ -23,3 +25,7 @@
 {{/with}}
     </div>
 </div>  
+
+
+
+
