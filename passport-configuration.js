@@ -55,7 +55,8 @@ passport.use(
           to: user.email,
           subject: `Welcome ${user.name} 📚`,
           html: `Welcome to Books and Tea.📚<br>
-            <a href="/">Go Your Profile</a>`
+            <a href="http://booksandtea.herokuapp.com/">Search for a book</a> now and add it to your bookshelf.<br>
+            <a href="http://booksandtea.herokuapp.com/authentication/sign-in">Click here</a> to see your profile`
         });
       })
       .then(() => {
