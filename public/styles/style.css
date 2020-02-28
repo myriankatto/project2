@@ -51,7 +51,7 @@ button {
   .container-img .btn {
     margin: 0 auto;
     border: none;
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 0;
     margin-bottom: 1em;
     border-radius: 5px;
@@ -60,8 +60,8 @@ button {
     background-color: #232b3b; }
     .container-img button:hover,
     .container-img .btn:hover {
-      background-color: black;
-      color: white;
+      background-color: white;
+      color: #232b3b;
       text-decoration: none; }
 
 .navbar {
@@ -101,8 +101,8 @@ button {
     border-radius: 10px;
     margin-left: 10px; }
     .navbar .navbar-btn:hover {
-      background-color: #ffffff34;
-      color: white;
+      background-color: #ffffff;
+      color: #232b3b;
       text-decoration: none; }
 
 .container-single {
@@ -141,8 +141,8 @@ button {
       margin: 20px auto;
       padding: 0; }
       .container-single .single-view button:hover {
-        background-color: #ffffff34;
-        color: white;
+        background-color: #ffffff;
+        color: #232b3b;
         text-decoration: none; }
   .container-single .add-bookshelf {
     width: 100%;
@@ -160,6 +160,10 @@ button {
       border: white solid 1px;
       border-radius: 5px;
       color: white; }
+      .container-single .add-bookshelf form button:hover {
+        background-color: #ffffff;
+        color: #232b3b;
+        text-decoration: none; }
     .container-single .add-bookshelf form select {
       background-color: white;
       color: #0e121a; }
@@ -277,8 +281,8 @@ textarea {
     width: 100px;
     margin: 20px auto; }
     .authentication button:hover {
-      background-color: #ffffff34;
-      color: white;
+      background-color: #ffffff;
+      color: #232b3b;
       text-decoration: none; }
   .authentication input {
     width: 400px;
@@ -368,8 +372,8 @@ textarea {
       padding: 0 10px;
       margin-right: 10px; }
       .review-profile-container .review-profile-btn button:hover {
-        background-color: #ffffff34;
-        color: white;
+        background-color: #ffffff;
+        color: #232b3b;
         text-decoration: none; }
 
 .profile-container {
@@ -401,45 +405,72 @@ textarea {
 
 .account-container {
   margin: 0 auto;
-  width: 70%;
-  padding-top: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
+  width: 60%;
+  padding-top: 100px; }
   .account-container .account-card {
-    background-color: inherit;
-    border: white 2px solid;
+    background-color: #0e121a;
     border-radius: 10px;
     color: white;
-    padding: 30px; }
-    .account-container .account-card h1 {
-      font-size: 1.3em;
-      font-weight: 900;
-      text-align: center; }
-    .account-container .account-card img {
-      width: 180px;
-      border-radius: 50%; }
-    .account-container .account-card .account span {
-      line-height: 1em; }
-    .account-container .account-card a {
-      border: 1px white solid;
-      text-align: center;
-      border-radius: 8px;
-      color: white;
-      padding: 5px 20px; }
-      .account-container .account-card a:hover {
-        background-color: #ffffff34;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center; }
+    .account-container .account-card-middle {
+      display: flex; }
+      .account-container .account-card-middle .left img {
+        border-radius: 50%;
+        width: 200px;
+        margin: 20px; }
+      .account-container .account-card-middle .left .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+        margin-left: 20px; }
+      .account-container .account-card-middle .left .inputfile,
+      .account-container .account-card-middle .left label {
+        font-size: 0.57m;
         color: white;
-        text-decoration: none; }
-    .account-container .account-card button {
-      border: 1px white solid;
-      border-radius: 8px;
-      color: white;
-      width: 200px; }
-      .account-container .account-card button:hover {
-        background-color: #ffffff34;
+        background-color: #232b3b;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline-block;
+        padding: 0 10px;
+        margin-left: 50px; }
+      .account-container .account-card-middle .left button {
+        border: 1px white solid;
+        border-radius: 5px;
         color: white;
-        text-decoration: none; }
+        padding: 0 8px;
+        margin-right: 10px; }
+        .account-container .account-card-middle .left button:hover {
+          background-color: #ffffff;
+          color: #232b3b;
+          text-decoration: none; }
+      .account-container .account-card-middle .right {
+        padding-left: 20px; }
+        .account-container .account-card-middle .right span {
+          line-height: 1.1em;
+          font-weight: 300; }
+    .account-container .account-card-footer {
+      display: flex;
+      justify-content: center;
+      padding-top: 40px; }
+      .account-container .account-card-footer a:hover {
+        text-decoration: none;
+        color: #232b3b; }
+      .account-container .account-card-footer button {
+        border: 1px white solid;
+        border-radius: 5px;
+        color: white;
+        padding: 0 10px;
+        margin-right: 10px; }
+        .account-container .account-card-footer button:hover {
+          background-color: #ffffff;
+          color: #232b3b;
+          text-decoration: none; }
 
 .shelves-container {
   background-color: inherit;
@@ -496,15 +527,21 @@ textarea {
     width: 200px;
     margin: 30px auto; }
     .edit-container button:hover {
-      background-color: #ffffff34;
-      color: white;
+      background-color: #ffffff;
+      color: #232b3b;
       text-decoration: none; }
   .edit-container textarea,
   .edit-container input {
     border-radius: 10px;
     padding: 10px 20px;
-    color: #b4b4b4; }
-  .edit-container h1 {
+    color: #b4b4b4;
+    max-height: auto; }
+  .edit-container select {
+    background-color: white;
+    color: #0e121a;
+    width: 50px; }
+  .edit-container h1,
+  .edit-container h3 {
     font-size: 1.5em; }
 
 .form-reviews-container {
@@ -521,8 +558,8 @@ textarea {
     width: 100px;
     margin: 20px auto; }
     .create-review .form-review button:hover {
-      background-color: #ffffff34;
-      color: white;
+      background-color: #ffffff;
+      color: #232b3b;
       text-decoration: none; }
   .create-review .form-review input {
     width: 400px;

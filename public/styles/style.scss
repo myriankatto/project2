@@ -1,7 +1,7 @@
 $font-sans: 'Open Sans';
 $darkblue: #232b3b;
 $blue: #0e121a;
-$whitefade: #ffffff34;
+$whitefade: #ffffff;
 
 * {
   &,
@@ -71,7 +71,7 @@ button {
     margin: 0 auto;
     // width: 10%;
     border: none;
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 0;
     margin-bottom: 1em;
     border-radius: 5px;
@@ -79,8 +79,8 @@ button {
     color: white;
     background-color: $darkblue;
     &:hover {
-      background-color: rgb(0, 0, 0);
-      color: white;
+      background-color: white;
+      color: $darkblue;
       text-decoration: none;
     }
   }
@@ -129,7 +129,7 @@ button {
     margin-left: 10px;
     &:hover {
       background-color: $whitefade;
-      color: white;
+      color: $darkblue;
       text-decoration: none;
     }
   }
@@ -179,7 +179,7 @@ button {
       padding: 0;
       &:hover {
         background-color: $whitefade;
-        color: white;
+        color: $darkblue;
         text-decoration: none;
       }
     }
@@ -203,6 +203,11 @@ button {
         border: white solid 1px;
         border-radius: 5px;
         color: white;
+        &:hover {
+          background-color: $whitefade;
+          color: $darkblue;
+          text-decoration: none;
+        }
       }
       select {
         background-color: white;
@@ -355,7 +360,7 @@ textarea {
     margin: 20px auto;
     &:hover {
       background-color: $whitefade;
-      color: white;
+      color: $darkblue;
       text-decoration: none;
     }
   }
@@ -475,7 +480,7 @@ textarea {
       margin-right: 10px;
       &:hover {
         background-color: $whitefade;
-        color: white;
+        color: $darkblue;
         text-decoration: none;
       }
     }
@@ -515,55 +520,88 @@ textarea {
     }
   }
 }
+
 .account-container {
   margin: 0 auto;
-  width: 70%;
+  width: 60%;
   padding-top: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   .account-card {
-    background-color: inherit;
-    border: white 2px solid;
+    background-color: $blue;
     border-radius: 10px;
     color: white;
-    padding: 30px;
-    h1 {
-      font-size: 1.3em;
-      font-weight: 900;
-      text-align: center;
-    }
-    img {
-      width: 180px;
-      border-radius: 50%;
-    }
-    .account {
-      span {
-        line-height: 1em;
-      }
-    }
-    a {
-      border: 1px white solid;
-      text-align: center;
-      border-radius: 8px;
-      color: white;
-      padding: 5px 20px;
-      &:hover {
-        background-color: $whitefade;
-        color: white;
-        text-decoration: none;
-      }
-    }
-    button {
-      border: 1px white solid;
-      border-radius: 8px;
-      color: white;
-      width: 200px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 
-      &:hover {
-        background-color: $whitefade;
-        color: white;
+    &-middle {
+      display: flex;
+      .left {
+        img {
+          border-radius: 50%;
+          width: 200px;
+          margin: 20px;
+        }
+        .inputfile {
+          width: 0.1px;
+          height: 0.1px;
+          opacity: 0;
+          overflow: hidden;
+          position: absolute;
+          z-index: -1;
+          margin-left: 20px;
+        }
+        .inputfile,
+        label {
+          font-size: 0.57m;
+          color: white;
+          background-color: $darkblue;
+          border-radius: 5px;
+          cursor: pointer;
+          display: inline-block;
+          padding: 0 10px;
+          margin-left: 50px;
+        }
+        button {
+          border: 1px white solid;
+          border-radius: 5px;
+          color: white;
+          padding: 0 8px;
+          margin-right: 10px;
+          &:hover {
+            background-color: $whitefade;
+            color: $darkblue;
+            text-decoration: none;
+          }
+        }
+      }
+      .right {
+        padding-left: 20px;
+        span {
+          line-height: 1.1em;
+          font-weight: 300;
+        }
+      }
+    }
+    &-footer {
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+      a:hover {
         text-decoration: none;
+        color: $darkblue;
+      }
+      button {
+        border: 1px white solid;
+        border-radius: 5px;
+        color: white;
+        padding: 0 10px;
+        margin-right: 10px;
+        &:hover {
+          background-color: $whitefade;
+          color: $darkblue;
+          text-decoration: none;
+        }
       }
     }
   }
@@ -637,7 +675,7 @@ textarea {
     margin: 30px auto;
     &:hover {
       background-color: $whitefade;
-      color: white;
+      color: $darkblue;
       text-decoration: none;
     }
   }
@@ -646,8 +684,15 @@ textarea {
     border-radius: 10px;
     padding: 10px 20px;
     color: rgb(180, 180, 180);
+    max-height: auto;
   }
-  h1 {
+  select {
+    background-color: white;
+    color: $blue;
+    width: 50px;
+  }
+  h1,
+  h3 {
     font-size: 1.5em;
   }
 }
@@ -671,7 +716,7 @@ textarea {
       margin: 20px auto;
       &:hover {
         background-color: $whitefade;
-        color: white;
+        color: $darkblue;
         text-decoration: none;
       }
     }

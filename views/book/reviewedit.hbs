@@ -1,6 +1,8 @@
-<h3>Edit Review for {{ review.book.title }}</h3>
+<div class="edit-container">
 
-<form action="/book/{{ review.book.googleID }}/review/{{ review._id }}/edit" method="POST">
+<h3>Edit Review for <strong>{{ review.book.title }}</strong></h3>
+
+<form class="form-container" action="/book/{{ review.book.googleID }}/review/{{ review._id }}/edit" method="POST">
 
   <label for="input-rate">Rate</label>
   <select name="rate" id="input-rate">
@@ -36,3 +38,4 @@
 
   <button>Submit changes</button>
 </form>
+</div>

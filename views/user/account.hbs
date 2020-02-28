@@ -1,24 +1,26 @@
 <div class="account-container">
   <div class="account-card">
-
+{{!-- <div class="account-card-header">
 <h1>Your Account</h1>
 
+</div> --}}
+<div class="account-card-middle">
 
+  <div class="left">
 <img src="{{user.picture}}" alt="{{user.username}}" />
-
-
 
 <form enctype="multipart/form-data" method="POST" action="/user/{{user._id}}/picture">
  
-  <label for="input-picture">Picture</label>
-  <input type="file" accept="image/*" name="picture" id="input-picture" />  
+  <label for="input-picture"><small></small>Picture File</small></label>
+  <input class="inputfile"type="file" accept="image/*" name="picture" id="input-picture" />  
 
   <button>Edit</button>
-</form>
+</form> 
 
+</div>
 
+<div class="right">
 
-<div class="account">
 <span><strong>Name</strong>: {{user.name}}</span>
 <br>
 <span><strong>Username</strong>: {{user.username}}</span>
@@ -28,15 +30,17 @@
 <span><strong>About</strong>: {{user.about}}</span>
 <br>
 <span><strong>Location</strong>: {{user.location}}</span>
-<br>
+</div>
 
-<br>
-<a href="/user/{{user._id}}/edit">Edit your account</a>
+
+</div>
+
+<div class="account-card-footer">
+<button><a href="/user/{{user._id}}/edit">Edit your account</a></butto>
 
 <form method="POST" action="/user/{{user._id}}/delete">
   <button>Delete your account</button>
 </form>
 </div>
 
-</div>
 </div>
