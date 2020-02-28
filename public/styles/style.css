@@ -181,7 +181,8 @@ textarea {
   .card-body-white li {
     list-style: none;
     font-size: 0.8em;
-    line-height: 0.9em; }
+    line-height: 0.9em;
+    padding-top: 15px; }
   .card-body-white ul {
     padding: 0;
     font-weight: 700; }
@@ -398,7 +399,8 @@ textarea {
       border-radius: 50%; }
     .profile-container .profile-card span {
       font-size: 0.9em;
-      font-weight: 300; }
+      font-weight: 300;
+      line-height: 0.8em; }
     .profile-container .profile-card p {
       font-size: 0.8em;
       line-height: 1.5em;
