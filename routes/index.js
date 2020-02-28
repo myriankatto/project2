@@ -11,6 +11,7 @@ router.get('/', (req, res, next) => {
 router.get('/search/:page/q=:term', (req, res, next) => {
   const { term, page } = req.params;
   const termWithoutSpaces = term.trim().replace(' ', '+');
+  const termWithSpaces = term.replace('+', ' ');
 
   let requestPromise;
 
@@ -58,7 +59,7 @@ router.get('/search/:page/q=:term', (req, res, next) => {
         // console.log(file.volumeInfo.authors);
         return file;
       });
-      res.render('book/search', { data, termWithoutSpaces, pagesObj });
+      res.render('book/search', { data, termWithSpaces, termWithoutSpaces, pagesObj });
     })
     .catch(error => {
       console.log(error);
@@ -68,6 +69,7 @@ router.get('/search/:page/q=:term', (req, res, next) => {
 router.get('/search', (req, res, next) => {
   const term = req.query.term;
   const termWithoutSpaces = term.trim().replace(' ', '+');
+  const termWithSpaces = term;
 
   const firstPage = true;
 
@@ -81,7 +83,7 @@ router.get('/search', (req, res, next) => {
         // console.log(file.volumeInfo.authors);
         return file;
       });
-      res.render('book/search', { data, termWithoutSpaces, firstPage });
+      res.render('book/search', { data, termWithSpaces, termWithoutSpaces, firstPage });
     })
     .catch(error => {
       console.log(error);
