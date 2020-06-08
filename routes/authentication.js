@@ -14,17 +14,7 @@ router.post(
   routeGuard(false),
   passport.authenticate('local-sign-up', {
     successRedirect: `/`,
-    failureRedirect: '/authentication/sign-up'
-  })
-);
-
-router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
-
-router.get(
-  '/facebook/callback',
-  passport.authenticate('facebook', {
-    successRedirect: '/',
-    failureRedirect: '/authentication/sign-up'
+    failureRedirect: '/authentication/sign-up',
   })
 );
 
@@ -37,7 +27,7 @@ router.post(
   routeGuard(false),
   passport.authenticate('local-sign-in', {
     successRedirect: '/',
-    failureRedirect: '/authentication/sign-in'
+    failureRedirect: '/authentication/sign-in',
   })
 );
 
